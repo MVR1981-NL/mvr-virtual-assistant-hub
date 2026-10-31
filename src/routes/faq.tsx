@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSyncExternalStore } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import capturedCSS from "../styles/pages/faq.css?raw";
@@ -12,18 +12,34 @@ export const Route = createFileRoute("/faq")({
 
 function Index() {
   const isMobile = useSyncExternalStore(subscribeMobile, () => matchMedia("(max-width: 767px)").matches, () => false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [cookiesDone, setCookiesDone] = useState(false);
+  useEffect(() => {
+    const cl = document.body.classList;
+    cl.toggle("jw-menu-is-desktop", !isMobile);
+    cl.toggle("jw-menu-is-mobile", isMobile);
+    cl.toggle("jw-menu-is-collapsed", isMobile && !menuOpen);
+    cl.toggle("jw-menu-is-open", isMobile && menuOpen);
+    if (!isMobile && menuOpen) setMenuOpen(false);
+  }, [isMobile, menuOpen]);
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMenuOpen(false); };
+    addEventListener("keydown", onKey);
+    return () => removeEventListener("keydown", onKey);
+  }, [menuOpen]);
   useImportedLayout();
   return (
     <>
       <style>{capturedCSS}</style>
       <div className={"cc-revoke cc-bottom cc-animate"} style={{ display: "none" }}>Cookie Policy</div>
-      <div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" className={"cc-window cc-banner cc-type-opt-in cc-theme-jw cc-bottom "}>
+      {!cookiesDone && <div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" className={"cc-window cc-banner cc-type-opt-in cc-theme-jw cc-bottom "}>
         <span id="cookieconsent:desc" className={"cc-message"}>Deze website maakt gebruik van cookies om uw ervaring te verbeteren en op maat gemaakte advertenties weer te geven. Door op ‘Accepteren’ te klikken, gaat u akkoord met het gebruik van alle cookies.</span>
         <div className={"cc-compliance cc-highlight"}>
-          <a aria-label="deny cookies" className={"cc-btn cc-deny"} role="button" tabIndex={0}>Afwijzen</a>
-          <a aria-label="allow cookies" className={"cc-btn cc-allow"} role="button" tabIndex={0}>Accepteren</a>
+          <a aria-label="deny cookies" className={"cc-btn cc-deny"} role="button" tabIndex={0} onClick={() => setCookiesDone(true)}>Afwijzen</a>
+          <a aria-label="allow cookies" className={"cc-btn cc-allow"} role="button" tabIndex={0} onClick={() => setCookiesDone(true)}>Accepteren</a>
         </div>
-      </div>
+      </div>}
       <a className={"jw-skip-link"} href="#main-content">
                   Ga direct naar de hoofdinhoud        </a>
       <div className={"jw-background"} />
@@ -39,8 +55,8 @@ function Index() {
                   <img className={"jw-mobile-logo jw-mobile-logo--landscape"} src="/site-assets/9b5fac01c344298e.webp" srcSet="/site-assets/9b5fac01c344298e.webp 1x, /site-assets/7678788219ad1506.webp 2x" alt="MVRvirtual assistant" title="MVRvirtual assistant" />
                 </a>
               </div>
-              <button type="button" className={"jw-mobile-menu__button jw-mobile-toggle"} aria-label="Open / sluit menu">
-                <span className={isMobile ? "jw-icon-burger" : "jw-icon-burger jw-icon-burger--cross"} data-site-import-scroll-header={"{\"mobile\":{\"added\":[],\"removed\":[\"jw-icon-burger--cross\"],\"threshold\":633}}"} />
+              <button type="button" className={"jw-mobile-menu__button jw-mobile-toggle"} aria-label="Open / sluit menu" aria-expanded={menuOpen} onClick={() => setMenuOpen((o) => !o)}>
+                <span className={menuOpen ? "jw-icon-burger jw-icon-burger--cross" : "jw-icon-burger"} />
               </button>
             </div>
             <nav className={"menu jw-menu-clone jw-menu-collapse"}>
