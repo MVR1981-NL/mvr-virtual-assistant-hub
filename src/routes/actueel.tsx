@@ -5,7 +5,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import capturedCSS from "../styles/pages/actueel.css?raw";
 
 export const Route = createFileRoute("/actueel")({
-  head: () => ({ meta: [{ title: "Kennis over Logistiek, Import \u0026 Douane | MVR" }] }),
+  head: () => ({ meta: [{ title: "Kennis over Logistiek, Import \u0026 Douane | MVR" }, { name: "description", content: "Kennis en nieuws over logistiek, import en douane van MVR." }, { property: "og:title", content: "Kennis over Logistiek, Import \u0026 Douane | MVR" }, { property: "og:description", content: "Kennis en nieuws over logistiek, import en douane van MVR." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   staticData: { importedDocument: { html: { "lang": "nl" }, body: { "className": "jw-is-no-slideshow jw-header-is-image jw-is-frontend jw-is-no-sidebar jw-is-no-mobile jw-menu-is-desktop", "data-jouwweb-page": "37677863", "data-jouwweb-segment-id": "37677863", "data-jouwweb-segment-type": "page", "data-template-name": "general|clean|blanco", "data-template-threshold": "960", "id": "top" } } },
   component: Index,
 });

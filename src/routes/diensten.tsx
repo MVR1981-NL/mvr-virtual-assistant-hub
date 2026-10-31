@@ -5,7 +5,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import capturedCSS from "../styles/pages/diensten.css?raw";
 
 export const Route = createFileRoute("/diensten")({
-  head: () => ({ meta: [{ title: "Logistieke Administratie Uitbesteden | MVR" }] }),
+  head: () => ({ meta: [{ title: "Logistieke Administratie Uitbesteden | MVR" }, { name: "description", content: "Logistieke, douane- en import/export-administratie uitbesteden aan MVR." }, { property: "og:title", content: "Logistieke Administratie Uitbesteden | MVR" }, { property: "og:description", content: "Logistieke, douane- en import/export-administratie uitbesteden aan MVR." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   staticData: { importedDocument: { html: { "lang": "nl" }, body: { "className": "jw-is-no-slideshow jw-header-is-image jw-is-frontend jw-is-no-sidebar jw-is-no-mobile jw-menu-is-desktop", "data-jouwweb-page": "33649325", "data-jouwweb-segment-id": "33649325", "data-jouwweb-segment-type": "page", "data-site-import-responsive-incomplete": "scroll", "data-template-name": "general|clean|blanco", "data-template-threshold": "960", "id": "top" } } },
   component: Index,
 });

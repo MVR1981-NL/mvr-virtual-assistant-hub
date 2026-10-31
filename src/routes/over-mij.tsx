@@ -5,7 +5,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import capturedCSS from "../styles/pages/over-mij.css?raw";
 
 export const Route = createFileRoute("/over-mij")({
-  head: () => ({ meta: [{ title: "29+ Jaar Logistiek \u0026 7+ Jaar Douane | MVR" }] }),
+  head: () => ({ meta: [{ title: "29+ Jaar Logistiek \u0026 7+ Jaar Douane | MVR" }, { name: "description", content: "29+ jaar logistiek en 7+ jaar douane-ervaring: maak kennis met MVR." }, { property: "og:title", content: "29+ Jaar Logistiek \u0026 7+ Jaar Douane | MVR" }, { property: "og:description", content: "29+ jaar logistiek en 7+ jaar douane-ervaring: maak kennis met MVR." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   staticData: { importedDocument: { html: { "lang": "nl" }, body: { "className": "jw-is-no-slideshow jw-header-is-image jw-is-frontend jw-is-no-sidebar jw-is-no-mobile jw-menu-is-desktop", "data-jouwweb-page": "33649326", "data-jouwweb-segment-id": "33649326", "data-jouwweb-segment-type": "page", "data-template-name": "general|clean|blanco", "data-template-threshold": "960", "id": "top" } } },
   component: Index,
 });

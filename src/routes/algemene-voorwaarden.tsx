@@ -5,7 +5,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import capturedCSS from "../styles/pages/algemene-voorwaarden.css?raw";
 
 export const Route = createFileRoute("/algemene-voorwaarden")({
-  head: () => ({ meta: [{ title: "algemene voorwaarden" }] }),
+  head: () => ({ meta: [{ title: "algemene voorwaarden" }, { name: "description", content: "Algemene voorwaarden van MVR Virtual Assistant." }, { property: "og:title", content: "algemene voorwaarden" }, { property: "og:description", content: "Algemene voorwaarden van MVR Virtual Assistant." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   staticData: { importedDocument: { html: { "lang": "nl" }, body: { "className": "jw-is-no-slideshow jw-header-is-image jw-is-frontend jw-is-no-sidebar jw-is-no-mobile jw-menu-is-desktop", "data-jouwweb-page": "33714009", "data-jouwweb-segment-id": "33714009", "data-jouwweb-segment-type": "page", "data-template-name": "general|clean|blanco", "data-template-threshold": "960", "id": "top" } } },
   component: Index,
 });

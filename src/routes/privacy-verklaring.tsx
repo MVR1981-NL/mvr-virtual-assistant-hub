@@ -5,7 +5,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import capturedCSS from "../styles/pages/privacy-verklaring.css?raw";
 
 export const Route = createFileRoute("/privacy-verklaring")({
-  head: () => ({ meta: [{ title: "Privacy Verklaring MVR Virtual Assistant" }] }),
+  head: () => ({ meta: [{ title: "Privacy Verklaring MVR Virtual Assistant" }, { name: "description", content: "Privacyverklaring van MVR Virtual Assistant." }, { property: "og:title", content: "Privacy Verklaring MVR Virtual Assistant" }, { property: "og:description", content: "Privacyverklaring van MVR Virtual Assistant." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
   staticData: { importedDocument: { html: { "lang": "nl" }, body: { "className": "jw-is-no-slideshow jw-header-is-image jw-is-frontend jw-is-no-sidebar jw-is-no-mobile jw-menu-is-desktop", "data-jouwweb-page": "33713620", "data-jouwweb-segment-id": "33713620", "data-jouwweb-segment-type": "page", "data-template-name": "general|clean|blanco", "data-template-threshold": "960", "id": "top" } } },
   component: Index,
 });
