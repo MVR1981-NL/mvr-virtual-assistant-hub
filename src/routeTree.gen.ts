@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ActueelRouteImport } from './routes/actueel'
+import { Route as AlgemeneVoorwaardenRouteImport } from './routes/algemene-voorwaarden'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DienstenRouteImport } from './routes/diensten'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as OverMijRouteImport } from './routes/over-mij'
+import { Route as PrivacyVerklaringRouteImport } from './routes/privacy-verklaring'
+import { Route as TarievenRouteImport } from './routes/tarieven'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ActueelRoute = ActueelRouteImport.update({
+  id: '/actueel',
+  path: '/actueel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlgemeneVoorwaardenRoute = AlgemeneVoorwaardenRouteImport.update({
+  id: '/algemene-voorwaarden',
+  path: '/algemene-voorwaarden',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DienstenRoute = DienstenRouteImport.update({
+  id: '/diensten',
+  path: '/diensten',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OverMijRoute = OverMijRouteImport.update({
+  id: '/over-mij',
+  path: '/over-mij',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyVerklaringRoute = PrivacyVerklaringRouteImport.update({
+  id: '/privacy-verklaring',
+  path: '/privacy-verklaring',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TarievenRoute = TarievenRouteImport.update({
+  id: '/tarieven',
+  path: '/tarieven',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/actueel': typeof ActueelRoute
+  '/algemene-voorwaarden': typeof AlgemeneVoorwaardenRoute
+  '/contact': typeof ContactRoute
+  '/diensten': typeof DienstenRoute
+  '/faq': typeof FaqRoute
+  '/over-mij': typeof OverMijRoute
+  '/privacy-verklaring': typeof PrivacyVerklaringRoute
+  '/tarieven': typeof TarievenRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/actueel': typeof ActueelRoute
+  '/algemene-voorwaarden': typeof AlgemeneVoorwaardenRoute
+  '/contact': typeof ContactRoute
+  '/diensten': typeof DienstenRoute
+  '/faq': typeof FaqRoute
+  '/over-mij': typeof OverMijRoute
+  '/privacy-verklaring': typeof PrivacyVerklaringRoute
+  '/tarieven': typeof TarievenRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/actueel': typeof ActueelRoute
+  '/algemene-voorwaarden': typeof AlgemeneVoorwaardenRoute
+  '/contact': typeof ContactRoute
+  '/diensten': typeof DienstenRoute
+  '/faq': typeof FaqRoute
+  '/over-mij': typeof OverMijRoute
+  '/privacy-verklaring': typeof PrivacyVerklaringRoute
+  '/tarieven': typeof TarievenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/actueel'
+    | '/algemene-voorwaarden'
+    | '/contact'
+    | '/diensten'
+    | '/faq'
+    | '/over-mij'
+    | '/privacy-verklaring'
+    | '/tarieven'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/actueel'
+    | '/algemene-voorwaarden'
+    | '/contact'
+    | '/diensten'
+    | '/faq'
+    | '/over-mij'
+    | '/privacy-verklaring'
+    | '/tarieven'
+  id:
+    | '__root__'
+    | '/'
+    | '/actueel'
+    | '/algemene-voorwaarden'
+    | '/contact'
+    | '/diensten'
+    | '/faq'
+    | '/over-mij'
+    | '/privacy-verklaring'
+    | '/tarieven'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ActueelRoute: typeof ActueelRoute
+  AlgemeneVoorwaardenRoute: typeof AlgemeneVoorwaardenRoute
+  ContactRoute: typeof ContactRoute
+  DienstenRoute: typeof DienstenRoute
+  FaqRoute: typeof FaqRoute
+  OverMijRoute: typeof OverMijRoute
+  PrivacyVerklaringRoute: typeof PrivacyVerklaringRoute
+  TarievenRoute: typeof TarievenRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/actueel': {
+      id: '/actueel'
+      path: '/actueel'
+      fullPath: '/actueel'
+      preLoaderRoute: typeof ActueelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/algemene-voorwaarden': {
+      id: '/algemene-voorwaarden'
+      path: '/algemene-voorwaarden'
+      fullPath: '/algemene-voorwaarden'
+      preLoaderRoute: typeof AlgemeneVoorwaardenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diensten': {
+      id: '/diensten'
+      path: '/diensten'
+      fullPath: '/diensten'
+      preLoaderRoute: typeof DienstenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/over-mij': {
+      id: '/over-mij'
+      path: '/over-mij'
+      fullPath: '/over-mij'
+      preLoaderRoute: typeof OverMijRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-verklaring': {
+      id: '/privacy-verklaring'
+      path: '/privacy-verklaring'
+      fullPath: '/privacy-verklaring'
+      preLoaderRoute: typeof PrivacyVerklaringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tarieven': {
+      id: '/tarieven'
+      path: '/tarieven'
+      fullPath: '/tarieven'
+      preLoaderRoute: typeof TarievenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ActueelRoute: ActueelRoute,
+  AlgemeneVoorwaardenRoute: AlgemeneVoorwaardenRoute,
+  ContactRoute: ContactRoute,
+  DienstenRoute: DienstenRoute,
+  FaqRoute: FaqRoute,
+  OverMijRoute: OverMijRoute,
+  PrivacyVerklaringRoute: PrivacyVerklaringRoute,
+  TarievenRoute: TarievenRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
