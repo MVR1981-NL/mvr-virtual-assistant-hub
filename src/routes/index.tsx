@@ -56,8 +56,8 @@ function Index() {
                   <img className={"jw-mobile-logo jw-mobile-logo--landscape"} src="/site-assets/9b5fac01c344298e.webp" srcSet="/site-assets/9b5fac01c344298e.webp 1x, /site-assets/7678788219ad1506.webp 2x" alt="MVRvirtual assistant" title="MVRvirtual assistant" />
                 </span>
               </div>
-              <button type="button" className={"jw-mobile-menu__button jw-mobile-toggle"} aria-label="Open / sluit menu">
-                <span className={isMobile ? "jw-icon-burger" : "jw-icon-burger jw-icon-burger--cross"} data-site-import-scroll-header={"{\"mobile\":{\"added\":[],\"removed\":[\"jw-icon-burger--cross\"],\"threshold\":633}}"} />
+              <button type="button" className={"jw-mobile-menu__button jw-mobile-toggle"} aria-label="Open / sluit menu" aria-expanded={menuOpen} onClick={() => setMenuOpen((o) => !o)}>
+                <span className={menuOpen ? "jw-icon-burger jw-icon-burger--cross" : "jw-icon-burger"} />
               </button>
             </div>
             <nav className={"menu jw-menu-clone jw-menu-collapse"}>
