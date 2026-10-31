@@ -40,7 +40,6 @@ function Index() {
           <a aria-label="allow cookies" className={"cc-btn cc-allow"} role="button" tabIndex={0} onClick={() => setCookiesDone(true)}>Accepteren</a>
         </div>
       </div>}
-      </div>
       <a className={"jw-skip-link"} href="/#main-content">
                   Ga direct naar de hoofdinhoud        </a>
       <div className={"jw-background"} />
