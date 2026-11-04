@@ -2,8 +2,16 @@ export type Block = ["h" | "p" | "li", string];
 export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 "privacy": [
 [
+"p",
+"Bij MVRvirtual assistant hechten we groot belang aan jouw privacy. Deze privacyverklaring legt uit welke persoonsgegevens we verzamelen, waarom we deze nodig hebben en hoe we jouw gegevens beschermen. Jouw vertrouwen is onze prioriteit."
+],
+[
 "h",
-"Privacyverklaring Bij MVRvirtual assistant hechten we groot belang aan jouw privacy. Deze privacyverklaring legt uit welke persoonsgegevens we verzamelen, waarom we deze nodig hebben en hoe we jouw gegevens beschermen. Jouw vertrouwen is onze prioriteit. Jouw gegevens, onze verantwoordelijkheid MVRvirtual assistant, gevestigd aan Meesberg 24 4708 NN Roosendaal, is verantwoordelijk voor de verwerking van persoonsgegevens zoals weergegeven in deze privacyverklaring. Je kunt ons bereiken via onze website https://www.mvrvirtualassistant.nl/ of telefonisch via +31(0)648401985."
+"Jouw gegevens, onze verantwoordelijkheid"
+],
+[
+"p",
+"MVRvirtual assistant, gevestigd aan Meesberg 24 4708 NN Roosendaal, is verantwoordelijk voor de verwerking van persoonsgegevens zoals weergegeven in deze privacyverklaring. Je kunt ons bereiken via onze website https://www.mvrvirtualassistant.nl/ of telefonisch via +31(0)648401985."
 ],
 [
 "p",
@@ -19,7 +27,15 @@ export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 ],
 [
 "li",
-"Voor- en achternaam E-mailadres Bijzondere en/of gevoelige persoonsgegevens:"
+"Voor- en achternaam"
+],
+[
+"li",
+"E-mailadres"
+],
+[
+"p",
+"Bijzondere en/of gevoelige persoonsgegevens:"
 ],
 [
 "p",
@@ -27,7 +43,11 @@ export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 ],
 [
 "h",
-"Waarom wij gegevens verzamelen en hoelang we ze bewaren Doel van de gegevensverwerking:"
+"Waarom wij gegevens verzamelen en hoelang we ze bewaren"
+],
+[
+"p",
+"Doel van de gegevensverwerking:"
 ],
 [
 "p",
@@ -35,7 +55,11 @@ export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 ],
 [
 "li",
-"Je te kunnen bellen of e-mailen indien dit nodig is om onze dienstverlening uit te kunnen voeren. Geautomatiseerde besluitvorming:"
+"Je te kunnen bellen of e-mailen indien dit nodig is om onze dienstverlening uit te kunnen voeren."
+],
+[
+"p",
+"Geautomatiseerde besluitvorming:"
 ],
 [
 "p",
@@ -59,7 +83,11 @@ export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 ],
 [
 "h",
-"Jouw rechten en gegevensbeveiliging Cookies die wij gebruiken:"
+"Jouw rechten en gegevensbeveiliging"
+],
+[
+"p",
+"Cookies die wij gebruiken:"
 ],
 [
 "p",
@@ -84,16 +112,20 @@ export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 [
 "p",
 "MVRvirtual assistant neemt de bescherming van jouw gegevens serieus en neemt passende maatregelen om misbruik, verlies, onbevoegde toegang, ongewenste openbaarmaking en ongeoorloofde wijziging tegen te gaan. Als jij het idee hebt dat jouw gegevens toch niet goed beveiligd zijn of er aanwijzingen zijn van misbruik, neem dan contact op met onze klantenservice of via info@mvrvirtualassistant.nl."
-],
-[
-"p",
-"<div className={\"jw-"
 ]
 ],
 "voorwaarden": [
 [
+"p",
+"Welkom bij MVRvirtual assistant. Deze algemene voorwaarden zijn de basis van onze samenwerking en beschrijven duidelijk hoe we te werk gaan. Hierin staan de afspraken over onze diensten, betalingen, eventuele wijzigingen en hoe we omgaan met vertrouwelijke informatie. Door deze voorwaarden te lezen, weet u precies wat u van ons kunt verwachten en welke wederzijdse verantwoordelijkheden er zijn. Ons doel is een transparante en succesvolle samenwerking. Lees ze zorgvuldig door."
+],
+[
 "h",
-"Algemene voorwaarden Welkom bij MVRvirtual assistant. Deze algemene voorwaarden zijn de basis van onze samenwerking en beschrijven duidelijk hoe we te werk gaan. Hierin staan de afspraken over onze diensten, betalingen, eventuele wijzigingen en hoe we omgaan met vertrouwelijke informatie. Door deze voorwaarden te lezen, weet u precies wat u van ons kunt verwachten en welke wederzijdse verantwoordelijkheden er zijn. Ons doel is een transparante en succesvolle samenwerking. Lees ze zorgvuldig door. Artikel 1: algemeen Deze voorwaarden zijn van toepassing op iedere aanbieding, offerte en overeenkomst tussen MVRvirtual assistant, hierna te noemen: “Opdrachtnemer”, en een Opdrachtgever waarop Opdrachtnemer deze voorwaarden van toepassing heeft verklaard, voor zover van deze voorwaarden niet door partijen uitdrukkelijk en schriftelijk is afgeweken."
+"Artikel 1: algemeen"
+],
+[
+"p",
+"Deze voorwaarden zijn van toepassing op iedere aanbieding, offerte en overeenkomst tussen MVRvirtual assistant, hierna te noemen: “Opdrachtnemer”, en een Opdrachtgever waarop Opdrachtnemer deze voorwaarden van toepassing heeft verklaard, voor zover van deze voorwaarden niet door partijen uitdrukkelijk en schriftelijk is afgeweken."
 ],
 [
 "p",
@@ -125,7 +157,11 @@ export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 ],
 [
 "h",
-"Artikel 2: offertes, aanbiedingen Alle offertes en aanbiedingen van Opdrachtnemer zijn vrijblijvend, tenzij in de offerte een termijn voor aanvaarding is gesteld. Indien geen aanvaardingstermijn is gesteld, vervalt de aanbieding altijd na 30 dagen."
+"Artikel 2: offertes, aanbiedingen"
+],
+[
+"p",
+"Alle offertes en aanbiedingen van Opdrachtnemer zijn vrijblijvend, tenzij in de offerte een termijn voor aanvaarding is gesteld. Indien geen aanvaardingstermijn is gesteld, vervalt de aanbieding altijd na 30 dagen."
 ],
 [
 "p",
@@ -145,7 +181,11 @@ export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 ],
 [
 "h",
-"Artikel 3: contractduur, uitvoeringstermijnen, risico-overgang, uitvoering en wijziging overeenkomst, prijsverhoging De overeenkomst tussen Opdrachtnemer en de Opdrachtgever wordt aangegaan voor bepaalde tijd, tenzij uit de aard van de overeenkomst anders voortvloeit of indien partijen uitdrukkelijk en schriftelijk anders overeenkomen."
+"Artikel 3: contractduur, uitvoeringstermijnen, risico-overgang, uitvoering en wijziging overeenkomst, prijsverhoging"
+],
+[
+"p",
+"De overeenkomst tussen Opdrachtnemer en de Opdrachtgever wordt aangegaan voor bepaalde tijd, tenzij uit de aard van de overeenkomst anders voortvloeit of indien partijen uitdrukkelijk en schriftelijk anders overeenkomen."
 ],
 [
 "p",
@@ -213,7 +253,11 @@ export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 ],
 [
 "h",
-"Artikel 4: opschorting, ontbinding en tussentijdse opzegging van de overeenkomst Opdrachtnemer is bevoegd de nakoming van de verplichtingen op te schorten of de overeenkomst te ontbinden, indien de Opdrachtgever de verplichtingen uit de overeenkomst niet, niet volledig of niet tijdig nakomt, na het sluiten van de overeenkomst Opdrachtnemer ter kennis gekomen omstandigheden goede grond geven te vrezen dat de Opdrachtgever de verplichtingen niet zal nakomen, indien de Opdrachtgever bij het sluiten van de overeenkomst verzocht is om zekerheid te stellen voor de voldoening van zijn verplichtingen uit de overeenkomst en deze zekerheid uitblijft of onvoldoende is of indien door de vertraging aan de zijde van de Opdrachtgever niet langer van Opdrachtnemer kan worden gevergd dat hij de overeenkomst tegen de oorspronkelijk overeengekomen condities zal nakomen."
+"Artikel 4: opschorting, ontbinding en tussentijdse opzegging van de overeenkomst"
+],
+[
+"p",
+"Opdrachtnemer is bevoegd de nakoming van de verplichtingen op te schorten of de overeenkomst te ontbinden, indien de Opdrachtgever de verplichtingen uit de overeenkomst niet, niet volledig of niet tijdig nakomt, na het sluiten van de overeenkomst Opdrachtnemer ter kennis gekomen omstandigheden goede grond geven te vrezen dat de Opdrachtgever de verplichtingen niet zal nakomen, indien de Opdrachtgever bij het sluiten van de overeenkomst verzocht is om zekerheid te stellen voor de voldoening van zijn verplichtingen uit de overeenkomst en deze zekerheid uitblijft of onvoldoende is of indien door de vertraging aan de zijde van de Opdrachtgever niet langer van Opdrachtnemer kan worden gevergd dat hij de overeenkomst tegen de oorspronkelijk overeengekomen condities zal nakomen."
 ],
 [
 "p",
@@ -253,7 +297,11 @@ export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 ],
 [
 "h",
-"Artikel 5: overmacht Opdrachtnemer is niet gehouden tot het nakomen van enige verplichting jegens de Opdrachtgever indien hij daartoe gehinderd wordt als gevolg van een omstandigheid die niet is te wijten aan schuld, en noch krachtens de wet, een rechtshandeling of in het verkeer geldende opvattingen voor zijn rekening komt."
+"Artikel 5: overmacht"
+],
+[
+"p",
+"Opdrachtnemer is niet gehouden tot het nakomen van enige verplichting jegens de Opdrachtgever indien hij daartoe gehinderd wordt als gevolg van een omstandigheid die niet is te wijten aan schuld, en noch krachtens de wet, een rechtshandeling of in het verkeer geldende opvattingen voor zijn rekening komt."
 ],
 [
 "p",
@@ -269,7 +317,11 @@ export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 ],
 [
 "h",
-"Artikel 6: betaling en incassokosten Betaling dient steeds te geschieden binnen 14 dagen na factuurdatum, op een door Opdrachtnemer aan te geven wijze in de valuta waarin is gefactureerd, tenzij schriftelijk anders door Opdrachtnemer aangegeven."
+"Artikel 6: betaling en incassokosten"
+],
+[
+"p",
+"Betaling dient steeds te geschieden binnen 14 dagen na factuurdatum, op een door Opdrachtnemer aan te geven wijze in de valuta waarin is gefactureerd, tenzij schriftelijk anders door Opdrachtnemer aangegeven."
 ],
 [
 "p",
@@ -293,7 +345,11 @@ export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 ],
 [
 "h",
-"Artikel 7: eigendomsvoorbehoud Het door in het kader van de overeenkomst Opdrachtnemer geleverde blijft eigendom van Opdrachtnemer totdat de Opdrachtgever alle verplichtingen uit de met Opdrachtnemer gesloten overeenkomst(en) deugdelijk is nagekomen."
+"Artikel 7: eigendomsvoorbehoud"
+],
+[
+"p",
+"Het door in het kader van de overeenkomst Opdrachtnemer geleverde blijft eigendom van Opdrachtnemer totdat de Opdrachtgever alle verplichtingen uit de met Opdrachtnemer gesloten overeenkomst(en) deugdelijk is nagekomen."
 ],
 [
 "p",
@@ -313,7 +369,11 @@ export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 ],
 [
 "h",
-"Artikel 8: garanties, onderzoek en reclames, verjaringstermijn De door Opdrachtnemer te leveren zaken voldoen aan de gebruikelijke eisen en normen die daaraan op het moment van levering redelijkerwijs gesteld kunnen worden en waarvoor zij bij normaal gebruik in Nederland zijn bestemd. De in dit artikel genoemde garantie is van toepassing op zaken die bestemd zijn voor het gebruik binnen Nederland. Bij gebruik buiten Nederland dient de Opdrachtgever zelf te verifiëren of het gebruik daarvan geschikt is voor het gebruik aldaar en voldoen aan de voorwaarden die daaraan gesteld worden. Opdrachtnemer kan in dat geval andere garantie- en andere voorwaarden stellen ter zake van de te leveren zaken of uit te voeren werkzaamheden."
+"Artikel 8: garanties, onderzoek en reclames, verjaringstermijn"
+],
+[
+"p",
+"De door Opdrachtnemer te leveren zaken voldoen aan de gebruikelijke eisen en normen die daaraan op het moment van levering redelijkerwijs gesteld kunnen worden en waarvoor zij bij normaal gebruik in Nederland zijn bestemd. De in dit artikel genoemde garantie is van toepassing op zaken die bestemd zijn voor het gebruik binnen Nederland. Bij gebruik buiten Nederland dient de Opdrachtgever zelf te verifiëren of het gebruik daarvan geschikt is voor het gebruik aldaar en voldoen aan de voorwaarden die daaraan gesteld worden. Opdrachtnemer kan in dat geval andere garantie- en andere voorwaarden stellen ter zake van de te leveren zaken of uit te voeren werkzaamheden."
 ],
 [
 "p",
@@ -357,7 +417,11 @@ export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 ],
 [
 "h",
-"Artikel 9: aansprakelijkheid Indien Opdrachtnemer aansprakelijk mocht zijn, dan is deze aansprakelijkheid beperkt tot hetgeen in deze bepaling is geregeld."
+"Artikel 9: aansprakelijkheid"
+],
+[
+"p",
+"Indien Opdrachtnemer aansprakelijk mocht zijn, dan is deze aansprakelijkheid beperkt tot hetgeen in deze bepaling is geregeld."
 ],
 [
 "p",
@@ -385,7 +449,27 @@ export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 ],
 [
 "h",
-"Artikel 10: vrijwaring De Opdrachtgever vrijwaart Opdrachtnemer voor eventuele aanspraken van derden, die in verband met de uitvoering van de overeenkomst schade lijden en waarvan de oorzaak aan andere dan aan Opdrachtnemer toerekenbaar is. Indien Opdrachtnemer uit dien hoofde door derden mocht worden aangesproken, dan is de Opdrachtgever gehouden Opdrachtnemer zowel buiten als in rechte bij te staan en onverwijld al hetgeen te doen dat van hem in dat geval verwacht mag worden. Mocht de Opdrachtgever in gebreke blijven in het nemen van adequate maatregelen, dan is Opdrachtnemer, zonder ingebrekestelling, gerechtigd zelf daartoe over te gaan. Alle kosten en schade aan de zijde van Opdrachtnemer en derden daardoor ontstaan, komen integraal voor rekening en risico van de Opdrachtgever. Artikel 11: intellectuele eigendom Opdrachtnemer behoudt zich de rechten en bevoegdheden voor die hem toekomen op grond van de Auteurswet en andere intellectuele wet- en regelgeving. Opdrachtnemer heeft het recht de door de uitvoering van een overeenkomst aan zijn zijde toegenomen kennis ook voor andere doeleinden te gebruiken, voor zover hierbij geen strikt vertrouwelijke informatie van de Opdrachtgever ter kennis van derden wordt gebracht. Artikel 12: toepasselijk recht en geschillen Op alle rechtsbetrekkingen waarbij Opdrachtnemer partij is, is uitsluitend het Nederlands recht van toepassing, ook indien aan een verbintenis geheel of gedeeltelijk in het buitenland uitvoering wordt gegeven of indien de bij de rechtsbetrekking betrokken partij aldaar woonplaats heeft. De toepasselijkheid van het Weens Koopverdrag wordt uitgesloten."
+"Artikel 10: vrijwaring"
+],
+[
+"p",
+"De Opdrachtgever vrijwaart Opdrachtnemer voor eventuele aanspraken van derden, die in verband met de uitvoering van de overeenkomst schade lijden en waarvan de oorzaak aan andere dan aan Opdrachtnemer toerekenbaar is. Indien Opdrachtnemer uit dien hoofde door derden mocht worden aangesproken, dan is de Opdrachtgever gehouden Opdrachtnemer zowel buiten als in rechte bij te staan en onverwijld al hetgeen te doen dat van hem in dat geval verwacht mag worden. Mocht de Opdrachtgever in gebreke blijven in het nemen van adequate maatregelen, dan is Opdrachtnemer, zonder ingebrekestelling, gerechtigd zelf daartoe over te gaan. Alle kosten en schade aan de zijde van Opdrachtnemer en derden daardoor ontstaan, komen integraal voor rekening en risico van de Opdrachtgever."
+],
+[
+"h",
+"Artikel 11: intellectuele eigendom"
+],
+[
+"p",
+"Opdrachtnemer behoudt zich de rechten en bevoegdheden voor die hem toekomen op grond van de Auteurswet en andere intellectuele wet- en regelgeving. Opdrachtnemer heeft het recht de door de uitvoering van een overeenkomst aan zijn zijde toegenomen kennis ook voor andere doeleinden te gebruiken, voor zover hierbij geen strikt vertrouwelijke informatie van de Opdrachtgever ter kennis van derden wordt gebracht."
+],
+[
+"h",
+"Artikel 12: toepasselijk recht en geschillen"
+],
+[
+"p",
+"Op alle rechtsbetrekkingen waarbij Opdrachtnemer partij is, is uitsluitend het Nederlands recht van toepassing, ook indien aan een verbintenis geheel of gedeeltelijk in het buitenland uitvoering wordt gegeven of indien de bij de rechtsbetrekking betrokken partij aldaar woonplaats heeft. De toepasselijkheid van het Weens Koopverdrag wordt uitgesloten."
 ],
 [
 "p",
@@ -397,15 +481,15 @@ export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 ],
 [
 "h",
-"Artikel 13: vindplaats en wijziging algemene voorwaarden Deze voorwaarden zijn gedeponeerd bij de Kamer van Koophandel. Van toepassing is steeds de laatst gedeponeerde versie c.q. de versie zoals die gold ten tijde van de totstandkoming van de rechtsbetrekking met Opdrachtnemer."
+"Artikel 13: vindplaats en wijziging algemene voorwaarden"
+],
+[
+"p",
+"Deze voorwaarden zijn gedeponeerd bij de Kamer van Koophandel. Van toepassing is steeds de laatst gedeponeerde versie c.q. de versie zoals die gold ten tijde van de totstandkoming van de rechtsbetrekking met Opdrachtnemer."
 ],
 [
 "p",
 "De Nederlandse tekst van de algemene voorwaarden is steeds bepalend voor de uitleg daarvan."
-],
-[
-"p",
-"<div className={\"jw-"
 ]
 ]
 } as Block[] as never;
