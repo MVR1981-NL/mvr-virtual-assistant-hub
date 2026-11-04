@@ -10,15 +10,15 @@ const leadSchema = z.object({
   request_type: z.enum(["check", "capaciteit", "vraag"]),
   name: z.string().trim().min(1, "Vul je naam in").max(100),
   email: z.string().trim().email("Vul een geldig e-mailadres in").max(255),
-  company: z.string().trim().max(150).optional(),
-  phone: z.string().trim().max(30).optional(),
+  company: z.string().trim().max(150).nullable(),
+  phone: z.string().trim().max(30).nullable(),
   message: z.string().trim().min(1, "Vertel kort waar je hulp bij zoekt").max(2000),
 });
 
 const checklistSchema = z.object({
   name: z.string().trim().min(1, "Vul je naam in").max(100),
   email: z.string().trim().email("Vul een geldig e-mailadres in").max(255),
-  company: z.string().trim().max(150).optional(),
+  company: z.string().trim().max(150).nullable(),
 });
 
 const input = "w-full rounded-md border border-input bg-card px-3.5 py-2.5 text-sm outline-none transition focus:border-ring focus:ring-2 focus:ring-ring/30";
@@ -48,8 +48,8 @@ export function LeadForm({ initialType = "check" }: { initialType?: RequestType 
       request_type: type,
       name: String(fd.get("name") ?? ""),
       email: String(fd.get("email") ?? ""),
-      company: String(fd.get("company") ?? "") || undefined,
-      phone: String(fd.get("phone") ?? "") || undefined,
+      company: String(fd.get("company") ?? "") || null,
+      phone: String(fd.get("phone") ?? "") || null,
       message: String(fd.get("message") ?? ""),
     };
     const parsed = leadSchema.safeParse(raw);
@@ -91,15 +91,15 @@ export function LeadForm({ initialType = "check" }: { initialType?: RequestType 
         </div>
       </fieldset>
       <div className="mt-5 grid gap-4 sm:grid-cols-2">
-        <div><label className={label} htmlFor="name">Naam *</label><input id="name" name="name" className={input} maxLength={100} autoComplete="name" />{errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}</div>
-        <div><label className={label} htmlFor="email">E-mailadres *</label><input id="email" name="email" type="email" className={input} maxLength={255} autoComplete="email" />{errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}</div>
+        <div><label className={label} htmlFor="name">Naam *</label><input id="name" name="name" className={input} maxLength={100} autoComplete="name" />{errors["name"] && <p className="mt-1 text-xs text-destructive">{errors["name"]}</p>}</div>
+        <div><label className={label} htmlFor="email">E-mailadres *</label><input id="email" name="email" type="email" className={input} maxLength={255} autoComplete="email" />{errors["email"] && <p className="mt-1 text-xs text-destructive">{errors["email"]}</p>}</div>
         <div><label className={label} htmlFor="company">Bedrijf</label><input id="company" name="company" className={input} maxLength={150} autoComplete="organization" /></div>
         <div><label className={label} htmlFor="phone">Telefoon</label><input id="phone" name="phone" type="tel" className={input} maxLength={30} autoComplete="tel" /></div>
       </div>
       <div className="mt-4">
         <label className={label} htmlFor="message">Waar kan ik je mee helpen? *</label>
         <textarea id="message" name="message" rows={5} className={input} maxLength={2000} placeholder={PLACEHOLDER[type]} />
-        {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
+        {errors["message"] && <p className="mt-1 text-xs text-destructive">{errors["message"]}</p>}
       </div>
       {status === "error" && <p className="mt-4 text-sm text-destructive">Versturen lukte niet. Probeer het opnieuw of mail naar {SITE.email}.</p>}
       <button type="submit" disabled={status === "sending"} className="mt-6 w-full rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground transition hover:brightness-110 disabled:opacity-60">
@@ -120,7 +120,7 @@ export function ChecklistForm() {
     const parsed = checklistSchema.safeParse({
       name: String(fd.get("name") ?? ""),
       email: String(fd.get("email") ?? ""),
-      company: String(fd.get("company") ?? "") || undefined,
+      company: String(fd.get("company") ?? "") || null,
     });
     if (!parsed.success) {
       const errs: Record<string, string> = {};
@@ -149,8 +149,8 @@ export function ChecklistForm() {
   return (
     <form onSubmit={onSubmit} noValidate className="rounded-xl bg-card p-6 text-card-foreground shadow-card">
       <div className="space-y-3">
-        <div><input name="name" placeholder="Naam *" aria-label="Naam" className={input} maxLength={100} />{errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}</div>
-        <div><input name="email" type="email" placeholder="Zakelijk e-mailadres *" aria-label="E-mailadres" className={input} maxLength={255} />{errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}</div>
+        <div><input name="name" placeholder="Naam *" aria-label="Naam" className={input} maxLength={100} />{errors["name"] && <p className="mt-1 text-xs text-destructive">{errors["name"]}</p>}</div>
+        <div><input name="email" type="email" placeholder="Zakelijk e-mailadres *" aria-label="E-mailadres" className={input} maxLength={255} />{errors["email"] && <p className="mt-1 text-xs text-destructive">{errors["email"]}</p>}</div>
         <input name="company" placeholder="Bedrijf" aria-label="Bedrijf" className={input} maxLength={150} />
       </div>
       {status === "error" && <p className="mt-3 text-sm text-destructive">Er ging iets mis. Probeer het opnieuw.</p>}

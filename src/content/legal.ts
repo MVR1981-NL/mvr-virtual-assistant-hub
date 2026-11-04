@@ -492,4 +492,4 @@ export const LEGAL: Record<"privacy" | "voorwaarden", Block[]> = {
 "De Nederlandse tekst van de algemene voorwaarden is steeds bepalend voor de uitleg daarvan."
 ]
 ]
-} as Block[] as never;
+} as unknown as Record<"privacy" | "voorwaarden", Block[]>;
