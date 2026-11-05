@@ -6,8 +6,7 @@ import { pageHead } from "@/lib/site";
 export const Route = createFileRoute("/diensten")({
   head: () => pageHead(
     "Logistieke & douane-administratie uitbesteden | Diensten MVR",
-    "CMR/AWB-documentatie, dossiers, import/export-administratie, data-entry en orderopvolging uitbesteden aan een logistiek specialist. Op afstand, in jouw systemen.",
-  ),
+    "CMR/AWB-documentatie, dossiers, import/export-administratie, data-entry en orderopvolging uitbesteden aan een logistiek specialist. Op afstand, in jouw systemen.", "/diensten"),
   component: Diensten,
 });
 

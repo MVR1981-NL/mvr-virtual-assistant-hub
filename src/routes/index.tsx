@@ -3,13 +3,13 @@ import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Brie
 import heroPort from "@/assets/hero-port.jpg";
 import { SiteLayout, Section, Eyebrow, CtaButtons, CtaBand } from "@/components/site/SiteLayout";
 import { ChecklistForm } from "@/components/site/forms";
-import { pageHead } from "@/lib/site";
+import { pageHead, BUSINESS_JSONLD } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
-  head: () => pageHead(
+  head: () => ({ ...pageHead(
     "Logistiek & Douane Ondersteuning op afstand | MVR",
     "Extra logistieke en douanecapaciteit zonder extra FTE. Documenten, dossiers, import/export-administratie en data-entry door een specialist met 29+ jaar logistiek-ervaring.",
-  ),
+  ), scripts: [{ type: "application/ld+json", children: JSON.stringify(BUSINESS_JSONLD) }] }),
   component: Index,
 });
 

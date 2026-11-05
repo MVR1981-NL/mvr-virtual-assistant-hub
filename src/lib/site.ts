@@ -19,9 +19,30 @@ export const NAV = [
   { to: "/faq", label: "FAQ" },
 ] as const;
 
-export function pageHead(title: string, description: string) {
+export const BASE_URL = "https://mvr-virtual-assistant-hub.lovable.app";
+
+export const BUSINESS_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "MVR Logistiek & Douane Ondersteuning",
+  description: "Logistieke en douane-administratie, documenten, dossiers en data-entry op afstand voor importeurs, handelsbedrijven en expediteurs.",
+  url: BASE_URL,
+  telephone: "+31648401985",
+  email: "info@mvrvirtualassistant.nl",
+  founder: { "@type": "Person", name: "Marcel van Roosendaal", sameAs: "https://linkedin.com/in/marcel-van-roosendaal" },
+  address: { "@type": "PostalAddress", addressLocality: "Roosendaal", addressRegion: "Noord-Brabant", addressCountry: "NL" },
+  areaServed: { "@type": "Country", name: "Nederland" },
+  sameAs: ["https://linkedin.com/in/marcel-van-roosendaal"],
+  knowsAbout: ["Douane-administratie", "Import en export", "CMR", "AWB", "Incoterms", "HS-codes", "Logistieke administratie", "Data-entry"],
+};
+
+export function pageHead(title: string, description: string, path = "/") {
+  const url = BASE_URL + path;
   return {
+    links: [{ rel: "canonical", href: url }],
     meta: [
+      { property: "og:url", content: url },
+      { property: "og:locale", content: "nl_NL" },
       { title },
       { name: "description", content: description },
       { property: "og:title", content: title },

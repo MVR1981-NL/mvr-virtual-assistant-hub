@@ -6,8 +6,7 @@ import { pageHead, SITE } from "@/lib/site";
 export const Route = createFileRoute("/over-mij")({
   head: () => pageHead(
     "Over Marcel van Roosendaal | MVR Logistiek & Douane",
-    "29+ jaar ervaring in logistiek en warehouses, 7+ jaar douane-praktijk. Maak kennis met Marcel van Roosendaal, oprichter van MVR.",
-  ),
+    "29+ jaar ervaring in logistiek en warehouses, 7+ jaar douane-praktijk. Maak kennis met Marcel van Roosendaal, oprichter van MVR.", "/over-mij"),
   component: OverMij,
 });
 
