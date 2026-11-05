@@ -11,8 +11,7 @@ export const Route = createFileRoute("/contact")({
   validateSearch: search,
   head: () => pageHead(
     "Contact & gratis check | MVR Logistiek & Douane",
-    "Vraag de gratis check aan of vertel welke logistieke of douane-werkzaamheden blijven liggen. Reactie van Marcel persoonlijk, ook via WhatsApp.",
-  ),
+    "Vraag de gratis check aan of vertel welke logistieke of douane-werkzaamheden blijven liggen. Reactie van Marcel persoonlijk, ook via WhatsApp.", "/contact"),
   component: Contact,
 });
 

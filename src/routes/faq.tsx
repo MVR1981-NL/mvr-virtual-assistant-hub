@@ -5,8 +5,7 @@ import { pageHead } from "@/lib/site";
 export const Route = createFileRoute("/faq")({
   head: () => pageHead(
     "Veelgestelde vragen | MVR Logistiek & Douane Ondersteuning",
-    "Antwoorden over werkzaamheden, capaciteit, beschikbaarheid, werken in jouw systemen en vertrouwelijkheid bij MVR.",
-  ),
+    "Antwoorden over werkzaamheden, capaciteit, beschikbaarheid, werken in jouw systemen en vertrouwelijkheid bij MVR.", "/faq"),
   component: Faq,
 });
 

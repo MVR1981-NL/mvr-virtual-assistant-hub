@@ -4,6 +4,6 @@ import { LEGAL } from "@/content/legal";
 import { pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/privacy-verklaring")({
-  head: () => pageHead("Privacyverklaring | MVR Logistiek & Douane", "Hoe MVR omgaat met persoonsgegevens, cookies en jouw rechten."),
+  head: () => pageHead("Privacyverklaring | MVR Logistiek & Douane", "Hoe MVR omgaat met persoonsgegevens, cookies en jouw rechten.", "/privacy-verklaring"),
   component: () => <LegalPage title="Privacyverklaring" blocks={LEGAL.privacy} />,
 });

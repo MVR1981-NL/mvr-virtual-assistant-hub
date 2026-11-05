@@ -5,8 +5,7 @@ import { pageHead } from "@/lib/site";
 export const Route = createFileRoute("/actueel")({
   head: () => pageHead(
     "Actueel in logistiek & douane | MVR",
-    "Praktische inzichten over DMS 4.1, ICS2 en nieuwe EU-regels voor import, geschreven vanuit de dagelijkse douanepraktijk.",
-  ),
+    "Praktische inzichten over DMS 4.1, ICS2 en nieuwe EU-regels voor import, geschreven vanuit de dagelijkse douanepraktijk.", "/actueel"),
   component: Actueel,
 });
 

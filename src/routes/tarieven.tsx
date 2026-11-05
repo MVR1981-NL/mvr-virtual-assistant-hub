@@ -6,8 +6,7 @@ import { pageHead } from "@/lib/site";
 export const Route = createFileRoute("/tarieven")({
   head: () => pageHead(
     "Tarieven logistiek & douane ondersteuning | MVR",
-    "Transparante capaciteitsblokken: FLEX 10 (€850), FLEX 20 (€1.650) en FLEX 25 (€2.000) per maand, of een Sprint voor pieken en achterstanden.",
-  ),
+    "Transparante capaciteitsblokken: FLEX 10 (€850), FLEX 20 (€1.650) en FLEX 25 (€2.000) per maand, of een Sprint voor pieken en achterstanden.", "/tarieven"),
   component: Tarieven,
 });
 
