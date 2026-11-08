@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target } from "lucide-react";
+import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target, Quote } from "lucide-react";
 import heroPort from "@/assets/hero-port.jpg";
 import { SiteLayout, Section, Eyebrow, CtaButtons, CtaBand } from "@/components/site/SiteLayout";
 import { ChecklistForm } from "@/components/site/forms";
@@ -9,7 +9,10 @@ export const Route = createFileRoute("/")({
   head: () => ({ ...pageHead(
     "Logistiek & Douane Ondersteuning op afstand | MVR",
     "Extra logistieke en douanecapaciteit zonder extra FTE. Documenten, dossiers, import/export-administratie en data-entry door een specialist met 29+ jaar logistiek-ervaring.",
-  ), scripts: [{ type: "application/ld+json", children: JSON.stringify(BUSINESS_JSONLD) }] }),
+  ), scripts: [
+    { type: "application/ld+json", children: JSON.stringify(BUSINESS_JSONLD) },
+    { type: "application/ld+json", children: JSON.stringify(REVIEW_JSONLD) },
+  ] }),
   component: Index,
 });
 
