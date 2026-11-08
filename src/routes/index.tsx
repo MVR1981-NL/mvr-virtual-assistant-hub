@@ -5,17 +5,6 @@ import { SiteLayout, Section, Eyebrow, CtaButtons, CtaBand } from "@/components/
 import { ChecklistForm } from "@/components/site/forms";
 import { pageHead, BUSINESS_JSONLD } from "@/lib/site";
 
-export const Route = createFileRoute("/")({
-  head: () => ({ ...pageHead(
-    "Logistiek & Douane Ondersteuning op afstand | MVR",
-    "Extra logistieke en douanecapaciteit zonder extra FTE. Documenten, dossiers, import/export-administratie en data-entry door een specialist met 29+ jaar logistiek-ervaring.",
-  ), scripts: [
-    { type: "application/ld+json", children: JSON.stringify(BUSINESS_JSONLD) },
-    { type: "application/ld+json", children: JSON.stringify(REVIEW_JSONLD) },
-  ] }),
-  component: Index,
-});
-
 const REVIEW = {
   quote: "Marcel heeft ons uitstekend geholpen bij alle nieuwe douaneveranderingen (EUDR, €3/€2 heffingen, product identifiers). Hij verifieert alles tot op de officiële bron, maakt complexe materie begrijpelijk voor B2B vs B2C en neemt veel uitzoekwerk en broker-communicatie uit handen. Erg fijn om zijn expertise aan boord te hebben – scheelt ons enorm veel tijd en voorkomt vertragingen.",
   name: "Kevin Bakx",
@@ -30,6 +19,17 @@ const REVIEW_JSONLD = {
   reviewBody: REVIEW.quote,
   reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
 };
+
+export const Route = createFileRoute("/")({
+  head: () => ({ ...pageHead(
+    "Logistiek & Douane Ondersteuning op afstand | MVR",
+    "Extra logistieke en douanecapaciteit zonder extra FTE. Documenten, dossiers, import/export-administratie en data-entry door een specialist met 29+ jaar logistiek-ervaring.",
+  ), scripts: [
+    { type: "application/ld+json", children: JSON.stringify(BUSINESS_JSONLD) },
+    { type: "application/ld+json", children: JSON.stringify(REVIEW_JSONLD) },
+  ] }),
+  component: Index,
+});
 
 const SERVICES = [
   { icon: FileText, title: "Documenten & dossiers", text: "CMR, AWB, dossieropbouw, controles en ontbrekende documentatie najagen." },
