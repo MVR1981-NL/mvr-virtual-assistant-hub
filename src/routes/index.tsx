@@ -16,6 +16,21 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const REVIEW = {
+  quote: "Marcel heeft ons uitstekend geholpen bij alle nieuwe douaneveranderingen (EUDR, €3/€2 heffingen, product identifiers). Hij verifieert alles tot op de officiële bron, maakt complexe materie begrijpelijk voor B2B vs B2C en neemt veel uitzoekwerk en broker-communicatie uit handen. Erg fijn om zijn expertise aan boord te hebben – scheelt ons enorm veel tijd en voorkomt vertragingen.",
+  name: "Kevin Bakx",
+  role: "Head of Supply Chain @ Honeybalm",
+};
+
+const REVIEW_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Review",
+  itemReviewed: { "@type": "ProfessionalService", name: "MVR Logistiek & Douane Ondersteuning" },
+  author: { "@type": "Person", name: REVIEW.name, jobTitle: "Head of Supply Chain", worksFor: { "@type": "Organization", name: "Honeybalm" } },
+  reviewBody: REVIEW.quote,
+  reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+};
+
 const SERVICES = [
   { icon: FileText, title: "Documenten & dossiers", text: "CMR, AWB, dossieropbouw, controles en ontbrekende documentatie najagen." },
   { icon: Globe2, title: "Import & export", text: "Import-/exportadministratie, oorsprongsdocumentatie en voorbereiding van douaneprocessen." },
@@ -134,6 +149,20 @@ function Index() {
           <ChecklistForm />
         </div>
       </section>
+
+      {/* Testimonial */}
+      <Section className="bg-muted">
+        <div className="mx-auto max-w-3xl text-center">
+          <Quote className="mx-auto h-10 w-10 text-primary" />
+          <blockquote className="mt-6 text-xl font-medium leading-relaxed md:text-2xl">
+            “{REVIEW.quote}”
+          </blockquote>
+          <figcaption className="mt-6">
+            <p className="font-semibold">{REVIEW.name}</p>
+            <p className="text-sm text-muted-foreground">{REVIEW.role}</p>
+          </figcaption>
+        </div>
+      </Section>
 
       {/* Fit */}
       <Section>
