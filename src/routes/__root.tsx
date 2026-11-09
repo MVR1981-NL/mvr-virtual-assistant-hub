@@ -5,6 +5,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
@@ -13,6 +14,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { getAnalyticsId } from "../lib/analytics.functions";
 
 function NotFoundComponent() {
   return (
@@ -75,7 +77,22 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
+  loader: async () => {
+    try {
+      return await getAnalyticsId();
+    } catch {
+      return { id: null };
+    }
+  },
+  head: ({ loaderData }) => ({
+    scripts: loaderData?.id
+      ? [
+          { src: `https://www.googletagmanager.com/gtag/js?id=${loaderData.id}`, async: true },
+          {
+            children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config',${JSON.stringify(loaderData.id)},{send_page_view:false});`,
+          },
+        ]
+      : [],
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -128,6 +145,11 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  useEffect(() => {
+    const w = window as unknown as { gtag?: (...a: unknown[]) => void };
+    w.gtag?.("event", "page_view", { page_path: pathname, page_location: window.location.href });
+  }, [pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>
