@@ -14,6 +14,7 @@ import { Route as ActueelRouteImport } from './routes/actueel'
 import { Route as AlgemeneVoorwaardenRouteImport } from './routes/algemene-voorwaarden'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DienstenRouteImport } from './routes/diensten'
+import { Route as DouaneAdministratieRouteImport } from './routes/douane-administratie'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as OverMijRouteImport } from './routes/over-mij'
 import { Route as PrivacyVerklaringRouteImport } from './routes/privacy-verklaring'
@@ -44,6 +45,11 @@ const DienstenRoute = DienstenRouteImport.update({
   path: '/diensten',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DouaneAdministratieRoute = DouaneAdministratieRouteImport.update({
+  id: '/douane-administratie',
+  path: '/douane-administratie',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/algemene-voorwaarden': typeof AlgemeneVoorwaardenRoute
   '/contact': typeof ContactRoute
   '/diensten': typeof DienstenRoute
+  '/douane-administratie': typeof DouaneAdministratieRoute
   '/faq': typeof FaqRoute
   '/over-mij': typeof OverMijRoute
   '/privacy-verklaring': typeof PrivacyVerklaringRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/algemene-voorwaarden': typeof AlgemeneVoorwaardenRoute
   '/contact': typeof ContactRoute
   '/diensten': typeof DienstenRoute
+  '/douane-administratie': typeof DouaneAdministratieRoute
   '/faq': typeof FaqRoute
   '/over-mij': typeof OverMijRoute
   '/privacy-verklaring': typeof PrivacyVerklaringRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/algemene-voorwaarden': typeof AlgemeneVoorwaardenRoute
   '/contact': typeof ContactRoute
   '/diensten': typeof DienstenRoute
+  '/douane-administratie': typeof DouaneAdministratieRoute
   '/faq': typeof FaqRoute
   '/over-mij': typeof OverMijRoute
   '/privacy-verklaring': typeof PrivacyVerklaringRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/algemene-voorwaarden'
     | '/contact'
     | '/diensten'
+    | '/douane-administratie'
     | '/faq'
     | '/over-mij'
     | '/privacy-verklaring'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/algemene-voorwaarden'
     | '/contact'
     | '/diensten'
+    | '/douane-administratie'
     | '/faq'
     | '/over-mij'
     | '/privacy-verklaring'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/algemene-voorwaarden'
     | '/contact'
     | '/diensten'
+    | '/douane-administratie'
     | '/faq'
     | '/over-mij'
     | '/privacy-verklaring'
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   AlgemeneVoorwaardenRoute: typeof AlgemeneVoorwaardenRoute
   ContactRoute: typeof ContactRoute
   DienstenRoute: typeof DienstenRoute
+  DouaneAdministratieRoute: typeof DouaneAdministratieRoute
   FaqRoute: typeof FaqRoute
   OverMijRoute: typeof OverMijRoute
   PrivacyVerklaringRoute: typeof PrivacyVerklaringRoute
@@ -184,6 +197,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DienstenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/douane-administratie': {
+      id: '/douane-administratie'
+      path: '/douane-administratie'
+      fullPath: '/douane-administratie'
+      preLoaderRoute: typeof DouaneAdministratieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/faq': {
       id: '/faq'
       path: '/faq'
@@ -221,6 +241,7 @@ const rootRouteChildren: RootRouteChildren = {
   AlgemeneVoorwaardenRoute: AlgemeneVoorwaardenRoute,
   ContactRoute: ContactRoute,
   DienstenRoute: DienstenRoute,
+  DouaneAdministratieRoute: DouaneAdministratieRoute,
   FaqRoute: FaqRoute,
   OverMijRoute: OverMijRoute,
   PrivacyVerklaringRoute: PrivacyVerklaringRoute,

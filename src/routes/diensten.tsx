@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Check, ShieldCheck, Layers, Workflow } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Check, ShieldCheck, Layers, Workflow, ArrowRight } from "lucide-react";
 import { SiteLayout, Section, Eyebrow, PageHero, CtaButtons, CtaBand } from "@/components/site/SiteLayout";
 import { pageHead } from "@/lib/site";
 
