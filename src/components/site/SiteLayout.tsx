@@ -55,6 +55,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <h3 className="text-sm font-semibold uppercase tracking-wider">Navigatie</h3>
             <ul className="mt-4 space-y-2 text-sm text-navy-muted">
               {NAV.map((n) => (<li key={n.to}><Link to={n.to} className="hover:text-navy-foreground">{n.label}</Link></li>))}
+              <li><Link to="/douane-administratie" className="hover:text-navy-foreground">Douane-administratie</Link></li>
               <li><Link to="/contact" className="hover:text-navy-foreground">Contact</Link></li>
             </ul>
           </div>
