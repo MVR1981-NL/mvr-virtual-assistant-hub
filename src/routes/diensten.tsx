@@ -33,6 +33,11 @@ function Diensten() {
               <ul className="mt-5 space-y-2.5 text-sm">
                 {g.items.map((i) => <li key={i} className="flex gap-3"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />{i}</li>)}
               </ul>
+              {g.n === "02" && (
+                <Link to="/douane-administratie" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                  Meer over douane-administratie uitbesteden <ArrowRight className="h-4 w-4" />
+                </Link>
+              )}
             </div>
           ))}
         </div>
