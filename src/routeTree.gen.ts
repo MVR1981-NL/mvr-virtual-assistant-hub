@@ -19,6 +19,8 @@ import { Route as FaqRouteImport } from './routes/faq'
 import { Route as OverMijRouteImport } from './routes/over-mij'
 import { Route as PrivacyVerklaringRouteImport } from './routes/privacy-verklaring'
 import { Route as TarievenRouteImport } from './routes/tarieven'
+import { Route as KennisDouaneAdministratieUitbestedenRouteImport } from './routes/kennis.douane-administratie-uitbesteden'
+import { Route as KennisLogistiekeAdministratieAchterstandRouteImport } from './routes/kennis.logistieke-administratie-achterstand'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -70,6 +72,18 @@ const TarievenRoute = TarievenRouteImport.update({
   path: '/tarieven',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KennisDouaneAdministratieUitbestedenRoute =
+  KennisDouaneAdministratieUitbestedenRouteImport.update({
+    id: '/kennis/douane-administratie-uitbesteden',
+    path: '/kennis/douane-administratie-uitbesteden',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const KennisLogistiekeAdministratieAchterstandRoute =
+  KennisLogistiekeAdministratieAchterstandRouteImport.update({
+    id: '/kennis/logistieke-administratie-achterstand',
+    path: '/kennis/logistieke-administratie-achterstand',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -82,6 +96,8 @@ export interface FileRoutesByFullPath {
   '/over-mij': typeof OverMijRoute
   '/privacy-verklaring': typeof PrivacyVerklaringRoute
   '/tarieven': typeof TarievenRoute
+  '/kennis/douane-administratie-uitbesteden': typeof KennisDouaneAdministratieUitbestedenRoute
+  '/kennis/logistieke-administratie-achterstand': typeof KennisLogistiekeAdministratieAchterstandRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +110,8 @@ export interface FileRoutesByTo {
   '/over-mij': typeof OverMijRoute
   '/privacy-verklaring': typeof PrivacyVerklaringRoute
   '/tarieven': typeof TarievenRoute
+  '/kennis/douane-administratie-uitbesteden': typeof KennisDouaneAdministratieUitbestedenRoute
+  '/kennis/logistieke-administratie-achterstand': typeof KennisLogistiekeAdministratieAchterstandRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +125,8 @@ export interface FileRoutesById {
   '/over-mij': typeof OverMijRoute
   '/privacy-verklaring': typeof PrivacyVerklaringRoute
   '/tarieven': typeof TarievenRoute
+  '/kennis/douane-administratie-uitbesteden': typeof KennisDouaneAdministratieUitbestedenRoute
+  '/kennis/logistieke-administratie-achterstand': typeof KennisLogistiekeAdministratieAchterstandRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +141,8 @@ export interface FileRouteTypes {
     | '/over-mij'
     | '/privacy-verklaring'
     | '/tarieven'
+    | '/kennis/douane-administratie-uitbesteden'
+    | '/kennis/logistieke-administratie-achterstand'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +155,8 @@ export interface FileRouteTypes {
     | '/over-mij'
     | '/privacy-verklaring'
     | '/tarieven'
+    | '/kennis/douane-administratie-uitbesteden'
+    | '/kennis/logistieke-administratie-achterstand'
   id:
     | '__root__'
     | '/'
@@ -145,6 +169,8 @@ export interface FileRouteTypes {
     | '/over-mij'
     | '/privacy-verklaring'
     | '/tarieven'
+    | '/kennis/douane-administratie-uitbesteden'
+    | '/kennis/logistieke-administratie-achterstand'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,6 +184,8 @@ export interface RootRouteChildren {
   OverMijRoute: typeof OverMijRoute
   PrivacyVerklaringRoute: typeof PrivacyVerklaringRoute
   TarievenRoute: typeof TarievenRoute
+  KennisDouaneAdministratieUitbestedenRoute: typeof KennisDouaneAdministratieUitbestedenRoute
+  KennisLogistiekeAdministratieAchterstandRoute: typeof KennisLogistiekeAdministratieAchterstandRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -232,6 +260,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TarievenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kennis/douane-administratie-uitbesteden': {
+      id: '/kennis/douane-administratie-uitbesteden'
+      path: '/kennis/douane-administratie-uitbesteden'
+      fullPath: '/kennis/douane-administratie-uitbesteden'
+      preLoaderRoute: typeof KennisDouaneAdministratieUitbestedenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kennis/logistieke-administratie-achterstand': {
+      id: '/kennis/logistieke-administratie-achterstand'
+      path: '/kennis/logistieke-administratie-achterstand'
+      fullPath: '/kennis/logistieke-administratie-achterstand'
+      preLoaderRoute: typeof KennisLogistiekeAdministratieAchterstandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -246,6 +288,10 @@ const rootRouteChildren: RootRouteChildren = {
   OverMijRoute: OverMijRoute,
   PrivacyVerklaringRoute: PrivacyVerklaringRoute,
   TarievenRoute: TarievenRoute,
+  KennisDouaneAdministratieUitbestedenRoute:
+    KennisDouaneAdministratieUitbestedenRoute,
+  KennisLogistiekeAdministratieAchterstandRoute:
+    KennisLogistiekeAdministratieAchterstandRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
