@@ -10,3 +10,5 @@
 <!-- LOVABLE:END -->
 
 Use a square, downscaled crop of the supplied brand emblem for the favicon in public/; retaining the actual emblem preserves brand fidelity at tab sizes.
+
+Keep knowledge article content in a browser-safe shared module and give each article its own route using the shared article view and metadata helper; this keeps listing, content and search previews consistent.
