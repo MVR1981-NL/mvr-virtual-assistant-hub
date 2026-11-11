@@ -3,6 +3,7 @@ import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Brie
 import heroPort from "@/assets/hero-port.jpg";
 import { SiteLayout, Section, Eyebrow, CtaButtons, CtaBand } from "@/components/site/SiteLayout";
 import { ChecklistForm } from "@/components/site/forms";
+import { Button } from "@/components/ui/button";
 import { pageHead, BUSINESS_JSONLD } from "@/lib/site";
 
 const REVIEW = {
@@ -11,22 +12,12 @@ const REVIEW = {
   role: "Head of Supply Chain @ Honeybalm",
 };
 
-const REVIEW_JSONLD = {
-  "@context": "https://schema.org",
-  "@type": "Review",
-  itemReviewed: { "@type": "ProfessionalService", name: "MVR Logistiek & Douane Ondersteuning" },
-  author: { "@type": "Person", name: REVIEW.name, jobTitle: "Head of Supply Chain", worksFor: { "@type": "Organization", name: "Honeybalm" } },
-  reviewBody: REVIEW.quote,
-  reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-};
-
 export const Route = createFileRoute("/")({
   head: () => ({ ...pageHead(
-    "Logistiek & Douane Ondersteuning op afstand | MVR",
-    "Extra logistieke en douanecapaciteit zonder extra FTE. Documenten, dossiers, import/export-administratie en data-entry door een specialist met 29+ jaar logistiek-ervaring.",
+    "Logistieke administratie & douane uitbesteden | MVR",
+    "Marcel van Roosendaal ondersteunt importeurs en logistieke bedrijven met douane-administratie, documenten en data-entry in jouw systemen. Vraag een gratis check aan.",
   ), scripts: [
     { type: "application/ld+json", children: JSON.stringify(BUSINESS_JSONLD) },
-    { type: "application/ld+json", children: JSON.stringify(REVIEW_JSONLD) },
   ] }),
   component: Index,
 });
@@ -51,22 +42,36 @@ function Index() {
       <section className="relative overflow-hidden bg-navy text-navy-foreground">
         <img src={heroPort} alt="Containerterminal in de haven bij zonsondergang" width={1600} height={912} className="absolute inset-0 h-full w-full object-cover opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/30" />
-        <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
+        <div className="relative mx-auto max-w-6xl px-5 py-14 md:py-20">
           <Eyebrow>Specialistische logistiek & douane ondersteuning</Eyebrow>
           <h1 className="mt-5 max-w-3xl text-4xl font-bold leading-[1.08] md:text-6xl">
-            Extra logistieke & douanecapaciteit. <span className="text-primary">Zonder extra FTE.</span>
+            MVR Logistiek & Douane Ondersteuning
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-navy-muted">
-            Voor importeurs, handelsbedrijven en expediteurs die structureel tijd verliezen aan documenten, dossiers, import/export-administratie en data-entry. Uitgevoerd door een specialist, op afstand en in jouw eigen systemen.
+            Blijven douanedossiers, documenten of ordergegevens liggen? Ik ben Marcel van Roosendaal. Ik neem planbare administratie over voor importeurs, handelsbedrijven en expediteurs — op afstand, waar mogelijk in jouw eigen systemen.
           </p>
-          <CtaButtons dark />
-          <dl className="mt-14 grid max-w-2xl grid-cols-3 gap-6 border-t border-navy-foreground/15 pt-8">
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild size="lg" className="h-auto whitespace-normal px-6 py-3.5"><Link to="/contact" search={{ type: "check" }}>Bespreek mijn administratieve knelpunt <ArrowRight /></Link></Button>
+            <Button asChild variant="outline" size="lg" className="h-auto whitespace-normal border-navy-foreground/30 bg-transparent px-6 py-3.5 text-navy-foreground hover:bg-navy-foreground/10 hover:text-navy-foreground"><Link to="/diensten">Bekijk wat ik overneem</Link></Button>
+          </div>
+          <p className="mt-4 text-sm text-navy-muted">Gratis check · Vrijblijvend · Persoonlijk contact met Marcel</p>
+          <dl className="mt-8 grid max-w-2xl grid-cols-3 gap-3 border-t border-navy-foreground/15 pt-6">
             <div><dt className="font-display text-3xl font-bold">29+ jaar</dt><dd className="mt-1 text-sm text-navy-muted">logistiek & warehouses</dd></div>
             <div><dt className="font-display text-3xl font-bold">7+ jaar</dt><dd className="mt-1 text-sm text-navy-muted">douane-praktijk</dd></div>
             <div><dt className="font-display text-3xl font-bold">10–25u</dt><dd className="mt-1 text-sm text-navy-muted">flexibel per maand</dd></div>
           </dl>
         </div>
       </section>
+
+      <Section className="bg-muted">
+        <figure className="mx-auto max-w-3xl">
+          <Eyebrow>Klantervaring · Honeybalm</Eyebrow>
+          <Quote className="mt-5 h-8 w-8 text-primary" aria-hidden="true" />
+          <blockquote className="mt-4 text-lg font-medium leading-relaxed md:text-xl">“{REVIEW.quote}”</blockquote>
+          <figcaption className="mt-5"><p className="font-semibold">{REVIEW.name}</p><p className="text-sm text-muted-foreground">{REVIEW.role}</p></figcaption>
+          <Button asChild variant="link" className="mt-5 h-auto whitespace-normal px-0 text-left"><Link to="/douane-administratie">Bekijk de ondersteuning bij douane-administratie <ArrowRight /></Link></Button>
+        </figure>
+      </Section>
 
       {/* Problem */}
       <Section>
@@ -136,6 +141,11 @@ function Index() {
             </div>
           ))}
         </div>
+        <div className="mt-10 border-t pt-8">
+          <h3 className="text-xl font-semibold">Wat levert de gratis check je op?</h3>
+          <p className="mt-3 max-w-2xl text-muted-foreground">We bespreken jouw knelpunt, welke taken je kunt overdragen en welke informatie daarvoor nodig is. Daarna bepalen we samen of ondersteuning past. Je zit nergens aan vast.</p>
+          <Button asChild className="mt-5 h-auto whitespace-normal py-3"><Link to="/contact" search={{ type: "check" }}>Vraag mijn gratis check aan <ArrowRight /></Link></Button>
+        </div>
       </Section>
 
       {/* Checklist lead magnet */}
@@ -149,20 +159,6 @@ function Index() {
           <ChecklistForm />
         </div>
       </section>
-
-      {/* Testimonial */}
-      <Section className="bg-muted">
-        <div className="mx-auto max-w-3xl text-center">
-          <Quote className="mx-auto h-10 w-10 text-primary" />
-          <blockquote className="mt-6 text-xl font-medium leading-relaxed md:text-2xl">
-            “{REVIEW.quote}”
-          </blockquote>
-          <figcaption className="mt-6">
-            <p className="font-semibold">{REVIEW.name}</p>
-            <p className="text-sm text-muted-foreground">{REVIEW.role}</p>
-          </figcaption>
-        </div>
-      </Section>
 
       {/* Fit */}
       <Section>
