@@ -8,7 +8,7 @@ export type KnowledgeArticle = {
   takeaway: string;
 };
 
-export const ARTICLES: KnowledgeArticle[] = [
+export const ARTICLES: [KnowledgeArticle, KnowledgeArticle] = [
   {
     path: "/kennis/douane-administratie-uitbesteden",
     category: "Douane & capaciteit",
