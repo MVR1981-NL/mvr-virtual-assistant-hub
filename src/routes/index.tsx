@@ -42,12 +42,12 @@ function Index() {
       <section className="relative overflow-hidden bg-navy text-navy-foreground">
         <img src={heroPort} alt="Containerterminal in de haven bij zonsondergang" width={1600} height={912} className="absolute inset-0 h-full w-full object-cover opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/30" />
-        <div className="relative mx-auto max-w-6xl px-5 py-14 md:py-20">
+        <div className="relative mx-auto max-w-6xl px-5 py-8 md:py-20">
           <Eyebrow>Specialistische logistiek & douane ondersteuning</Eyebrow>
-          <h1 className="mt-5 max-w-3xl text-4xl font-bold leading-[1.08] md:text-6xl">
+          <h1 className="mt-5 max-w-3xl text-3xl font-bold leading-tight md:text-6xl">
             MVR Logistiek & Douane Ondersteuning
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-navy-muted">
+          <p className="mt-6 max-w-2xl text-base text-navy-muted md:text-lg">
             Blijven douanedossiers, documenten of ordergegevens liggen? Ik ben Marcel van Roosendaal. Ik neem planbare administratie over voor importeurs, handelsbedrijven en expediteurs — op afstand, waar mogelijk in jouw eigen systemen.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -56,9 +56,9 @@ function Index() {
           </div>
           <p className="mt-4 text-sm text-navy-muted">Gratis check · Vrijblijvend · Persoonlijk contact met Marcel</p>
           <dl className="mt-8 grid max-w-2xl grid-cols-3 gap-3 border-t border-navy-foreground/15 pt-6">
-            <div><dt className="font-display text-3xl font-bold">29+ jaar</dt><dd className="mt-1 text-sm text-navy-muted">logistiek & warehouses</dd></div>
-            <div><dt className="font-display text-3xl font-bold">7+ jaar</dt><dd className="mt-1 text-sm text-navy-muted">douane-praktijk</dd></div>
-            <div><dt className="font-display text-3xl font-bold">10–25u</dt><dd className="mt-1 text-sm text-navy-muted">flexibel per maand</dd></div>
+            <div><dt className="font-display text-2xl font-bold sm:text-3xl">29+ jaar</dt><dd className="mt-1 text-sm text-navy-muted">logistiek & warehouses</dd></div>
+            <div><dt className="font-display text-2xl font-bold sm:text-3xl">7+ jaar</dt><dd className="mt-1 text-sm text-navy-muted">douane-praktijk</dd></div>
+            <div><dt className="font-display text-2xl font-bold sm:text-3xl">10–25u</dt><dd className="mt-1 text-sm text-navy-muted">flexibel per maand</dd></div>
           </dl>
         </div>
       </section>
