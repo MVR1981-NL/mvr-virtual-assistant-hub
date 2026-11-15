@@ -18,6 +18,7 @@ export const NAV = [
   { to: "/actueel", label: "Actueel" },
   { to: "/faq", label: "FAQ" },
   { to: "/importkosten-calculator", label: "Calculator" },
+  { to: "/douane-administratie", label: "Douane-administratie" },
 ] as const;
 
 export const BASE_URL = "https://mvr-virtual-assistant-hub.lovable.app";
