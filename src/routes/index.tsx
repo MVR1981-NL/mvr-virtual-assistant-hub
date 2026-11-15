@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target, Quote } from "lucide-react";
+import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target, Quote, Calculator } from "lucide-react";
 import heroPort from "@/assets/hero-port.jpg";
 import { SiteLayout, Section, Eyebrow, CtaButtons, CtaBand } from "@/components/site/SiteLayout";
 import { ChecklistForm } from "@/components/site/forms";
@@ -145,6 +145,27 @@ function Index() {
           <h3 className="text-xl font-semibold">Wat levert de gratis check je op?</h3>
           <p className="mt-3 max-w-2xl text-muted-foreground">We bespreken jouw knelpunt, welke taken je kunt overdragen en welke informatie daarvoor nodig is. Daarna bepalen we samen of ondersteuning past. Je zit nergens aan vast.</p>
           <Button asChild className="mt-5 h-auto whitespace-normal py-3"><Link to="/contact" search={{ type: "check" }}>Vraag mijn gratis check aan <ArrowRight /></Link></Button>
+        </div>
+      </Section>
+
+      {/* Gratis tools - Calculator + DMS Checklist */}
+      <Section>
+        <Eyebrow>Gratis tools</Eyebrow>
+        <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Bereken je importkosten en check je aangifte</h2>
+        <p className="mt-4 max-w-2xl text-muted-foreground">Twee gratis tools voor importeurs en transportbedrijven. Direct te gebruiken, zonder account.</p>
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          <div className="rounded-xl border bg-card p-7 shadow-card">
+            <Calculator className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">Importkosten Calculator</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Bereken in 1 minuut je invoerrechten, BTW bij import en totale landed cost. Inclusief artikel 23 verlegging.</p>
+            <Button asChild className="mt-5"><Link to="/importkosten-calculator">Bereken je importkosten <ArrowRight /></Link></Button>
+          </div>
+          <div className="rounded-xl border bg-card p-7 shadow-card">
+            <FileText className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">DMS 4.1 &amp; ICS2 Checklist</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Vink in 1 minuut af of je aangifte klopt. EORI, HS-code, douanewaarde, ENS-deadline en Portbase-melding.</p>
+            <Button asChild className="mt-5"><a href="/dms-ics2-checklist.pdf" target="_blank" rel="noreferrer">Download gratis checklist <ArrowRight /></a></Button>
+          </div>
         </div>
       </Section>
 
