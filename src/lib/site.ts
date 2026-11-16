@@ -21,7 +21,7 @@ export const NAV = [
   { to: "/douane-administratie", label: "Douane-administratie" },
 ] as const;
 
-export const BASE_URL = "https://mvr-virtual-assistant-hub.lovable.app";
+export const BASE_URL = "https://www.mvrvirtualassistant.nl";
 
 export const BUSINESS_JSONLD = {
   "@context": "https://schema.org",
