@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target, Quote, Calculator } from "lucide-react";
+import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target, Quote, Calculator, Map } from "lucide-react";
 import heroPort from "@/assets/hero-port.jpg";
 import { SiteLayout, Section, Eyebrow, CtaButtons, CtaBand } from "@/components/site/SiteLayout";
 import { ChecklistForm } from "@/components/site/forms";
@@ -148,12 +148,12 @@ function Index() {
         </div>
       </Section>
 
-      {/* Gratis tools - Calculator + DMS Checklist */}
+      {/* Gratis tools - Calculator + DMS Checklist + Roadmap */}
       <Section>
         <Eyebrow>Gratis tools</Eyebrow>
-        <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Bereken je importkosten en check je aangifte</h2>
-        <p className="mt-4 max-w-2xl text-muted-foreground">Twee gratis tools voor importeurs en transportbedrijven. Direct te gebruiken, zonder account.</p>
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
+        <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Bereken, check en plan je import</h2>
+        <p className="mt-4 max-w-2xl text-muted-foreground">Drie gratis tools voor importeurs en transportbedrijven. Direct te gebruiken, zonder account.</p>
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
           <div className="rounded-xl border bg-card p-7 shadow-card">
             <Calculator className="h-8 w-8 text-primary" />
             <h3 className="mt-4 text-xl font-semibold">Importkosten Calculator</h3>
@@ -165,6 +165,17 @@ function Index() {
             <h3 className="mt-4 text-xl font-semibold">DMS 4.1 &amp; ICS2 Checklist</h3>
             <p className="mt-2 text-sm text-muted-foreground">Vink in 1 minuut af of je aangifte klopt. EORI, HS-code, douanewaarde, ENS-deadline en Portbase-melding.</p>
             <Button asChild className="mt-5"><a href="/dms-ics2-checklist.pdf" target="_blank" rel="noreferrer">Download gratis checklist <ArrowRight /></a></Button>
+          </div>
+          <div className="rounded-xl border bg-card p-7 shadow-card">
+            <Map className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">Persoonlijke Import Roadmap</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Beantwoord 5 vragen en krijg je eigen importplan: HS-code, tarief, EUDR, EORI en artikel 23 in 1 overzicht.</p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Persoonlijk voor jouw product en land</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> In 2 minuten klaar</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Deel hem met je collega</li>
+            </ul>
+            <Button asChild className="mt-5"><Link to="/import-roadmap">Maak mijn roadmap <ArrowRight /></Link></Button>
           </div>
         </div>
       </Section>
