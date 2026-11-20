@@ -19,6 +19,7 @@ export const NAV = [
   { to: "/faq", label: "FAQ" },
   { to: "/douane-tools", label: "Douane Tools" },
   { to: "/transport-tools", label: "Transport Tools" },
+  { label: "Logistiek Tools", to: "/logistiek-tools" },
   { to: "/douane-administratie", label: "Douane-administratie" },
 ] as const;
 
