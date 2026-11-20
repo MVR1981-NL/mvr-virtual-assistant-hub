@@ -20,6 +20,7 @@ export const NAV = [
   { to: "/importkosten-calculator", label: "Calculator" },
   { to: "/import-roadmap", label: "Import Roadmap" },
   { to: "/cbam-check", label: "CBAM Check" },
+  { label: "Transport Tools", href: "/transport-tools" },
   { to: "/douane-administratie", label: "Douane-administratie" },
 ] as const;
 
