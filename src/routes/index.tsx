@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target, Quote, Calculator, Map, Leaf, Package, Fuel, ClipboardCheck, Scale, Timer } from "lucide-react";
+import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target, Quote, Calculator, Map, Leaf, Package, Fuel, ClipboardCheck, Scale, Timer, Search, TreePine } from "lucide-react";
 import heroPort from "@/assets/hero-port.jpg";
 import { SiteLayout, Section, Eyebrow, CtaButtons, CtaBand } from "@/components/site/SiteLayout";
 import { ChecklistForm } from "@/components/site/forms";
@@ -152,8 +152,8 @@ function Index() {
       <Section>
         <Eyebrow>Gratis tools - Douane</Eyebrow>
         <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Bereken, check, plan en controleer je import</h2>
-        <p className="mt-4 max-w-2xl text-muted-foreground">Vier gratis tools voor importeurs en transportbedrijven. Direct te gebruiken, zonder account.</p>
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <p className="mt-4 max-w-2xl text-muted-foreground">Zes gratis tools voor importeurs en transportbedrijven. Direct te gebruiken, zonder account.</p>
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           <div className="rounded-xl border bg-card p-7 shadow-card">
             <Calculator className="h-8 w-8 text-primary" />
             <h3 className="mt-4 text-xl font-semibold">Importkosten Calculator</h3>
@@ -187,6 +187,28 @@ function Index() {
               <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Deadlines tot 30 september 2027</li>
             </ul>
             <Button asChild className="mt-5"><Link to="/cbam-check">Check mijn CBAM status <ArrowRight /></Link></Button>
+          </div>
+          <div className="rounded-xl border bg-card p-7 shadow-card">
+            <Search className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">HS-code Check</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Wat is de HS-code van mijn product? Check HS-code, tarief en EUDR in 1 keer.</p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> HS-code direct</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Invoertarief indicatie</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> EUDR ja / nee</li>
+            </ul>
+            <Button asChild className="mt-5"><Link to="/hs-code-check">Check mijn HS-code <ArrowRight /></Link></Button>
+          </div>
+          <div className="rounded-xl border bg-card p-7 shadow-card">
+            <TreePine className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">EUDR Check</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Valt mijn product onder de ontbossingsregels? Check of je due diligence moet doen.</p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> 7 grondstoffen</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Geolocatie check</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Due diligence check</li>
+            </ul>
+            <Button asChild className="mt-5"><Link to="/eudr-check">Check mijn EUDR <ArrowRight /></Link></Button>
           </div>
         </div>
       </Section>
