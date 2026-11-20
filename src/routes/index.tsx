@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target, Quote, Calculator, Map, Leaf } from "lucide-react";
+import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target, Quote, Calculator, Map, Leaf, Package, Fuel, ClipboardCheck, Scale, Timer } from "lucide-react";
 import heroPort from "@/assets/hero-port.jpg";
 import { SiteLayout, Section, Eyebrow, CtaButtons, CtaBand } from "@/components/site/SiteLayout";
 import { ChecklistForm } from "@/components/site/forms";
@@ -148,9 +148,9 @@ function Index() {
         </div>
       </Section>
 
-      {/* Gratis tools - Calculator + DMS Checklist + Roadmap + CBAM */}
+      {/* Gratis tools - Douane */}
       <Section>
-        <Eyebrow>Gratis tools</Eyebrow>
+        <Eyebrow>Gratis tools - Douane</Eyebrow>
         <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Bereken, check, plan en controleer je import</h2>
         <p className="mt-4 max-w-2xl text-muted-foreground">Vier gratis tools voor importeurs en transportbedrijven. Direct te gebruiken, zonder account.</p>
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -187,6 +187,81 @@ function Index() {
               <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Deadlines tot 30 september 2027</li>
             </ul>
             <Button asChild className="mt-5"><Link to="/cbam-check">Check mijn CBAM status <ArrowRight /></Link></Button>
+          </div>
+        </div>
+      </Section>
+
+      {/* Gratis tools - Transport & Logistiek */}
+      <Section className="bg-muted">
+        <Eyebrow>Gratis tools - Transport &amp; Logistiek</Eyebrow>
+        <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Handige tools voor transporteurs en logistieke bedrijven</h2>
+        <p className="mt-4 max-w-2xl text-muted-foreground">Zes gratis tools voor planners, chauffeurs en logistieke bedrijven. Direct te gebruiken, zonder account.</p>
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="rounded-xl border bg-card p-7 shadow-card">
+            <Package className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">Pallet Calculator</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Hoeveel euro-pallets passen in je trailer? En hoeveel laadmeters is dat? In 30 seconden uitgerekend.</p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Euro-pallet 120 x 80 cm</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Blokpallet 100 x 120 cm</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Laadmeters direct erbij</li>
+            </ul>
+            <Button asChild className="mt-5"><Link to="/pallet-calculator">Bereken pallets <ArrowRight /></Link></Button>
+          </div>
+          <div className="rounded-xl border bg-card p-7 shadow-card">
+            <Fuel className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">Transportkosten Calculator</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Wat kost deze rit echt? Diesel, tol, chauffeur en afschrijving. Direct je kostprijs per km en per pallet.</p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Kostprijs per km</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Per pallet / per rit</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Marge check</li>
+            </ul>
+            <Button asChild className="mt-5"><Link to="/transportkosten-calculator">Bereken ritkosten <ArrowRight /></Link></Button>
+          </div>
+          <div className="rounded-xl border bg-card p-7 shadow-card">
+            <ClipboardCheck className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">CMR Checklist</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Staat alles op je CMR wat er op moet staan? Vink af voor vertrek en voorkom discussie bij lossen.</p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Verplichte velden</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Foto + handtekening</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Wachttijd log</li>
+            </ul>
+            <Button asChild className="mt-5"><Link to="/cmr-checklist">Check mijn CMR <ArrowRight /></Link></Button>
+          </div>
+          <div className="rounded-xl border bg-card p-7 shadow-card">
+            <Scale className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">Incoterms Kiezer</h3>
+            <p className="mt-2 text-sm text-muted-foreground">EXW, FOB, DAP of DDP? Beantwoord 3 vragen en zie wie betaalt, wie regelt en waar het risico overgaat.</p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Wie betaalt transport?</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Wie doet douane?</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Waar gaat risico over?</li>
+            </ul>
+            <Button asChild className="mt-5"><Link to="/incoterms-kiezer">Kies mijn Incoterm <ArrowRight /></Link></Button>
+          </div>
+          <div className="rounded-xl border bg-card p-7 shadow-card">
+            <Clock className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">Rij- en Rusttijden Check</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Mag je chauffeur nog doorrijden? Check dagelijkse rijtijd, wekelijkse rijtijd en verplichte rust.</p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> 9u / 10u regel</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> 56u weekmax</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> 11u rust</li>
+            </ul>
+            <Button asChild className="mt-5"><Link to="/rij-rusttijden-check">Check rijtijd <ArrowRight /></Link></Button>
+          </div>
+          <div className="rounded-xl border bg-card p-7 shadow-card">
+            <Timer className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">Wachttijd Calculator</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Hoeveel wachttijd kan je factureren? Log aankomst, start laden en vertrek en bereken direct je bedrag.</p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Vrije wachttijd instelbaar</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Uurtarief instelbaar</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Direct bedrag voor factuur</li>
+            </ul>
+            <Button asChild className="mt-5"><Link to="/wachttijd-calculator">Bereken wachttijd <ArrowRight /></Link></Button>
           </div>
         </div>
       </Section>
