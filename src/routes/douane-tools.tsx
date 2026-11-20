@@ -25,6 +25,8 @@ function DouaneTools() {
   return (
     <SiteLayout>
       <Section>
+  <img src="/site-assets/douane-haven.jpg" alt="Containerterminal bij zonsondergang" className="w-full h-64 object-cover rounded-2xl mb-8" />
+  <h1>Douane Tools</h1>
         <Eyebrow>Gratis tools - Douane</Eyebrow>
         <h1 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Gratis Douane Tools</h1>
         <p className="mt-4 max-w-2xl text-muted-foreground">Zes gratis tools voor importeurs en transportbedrijven. Direct te gebruiken, zonder account. Bereken, check, plan en controleer je import.</p>
