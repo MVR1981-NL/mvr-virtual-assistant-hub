@@ -52,6 +52,7 @@ function DouaneAdministratie() {
       </PageHero>
 
       <Section>
+        <img src="/site-assets/Haven.jpg" alt="Truck bij containerterminal" className="w-full h-64 object-cover rounded-2xl mb-8" />
         <Eyebrow>Wat ik overneem</Eyebrow>
         <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Van voorbereiding tot opvolging</h2>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
