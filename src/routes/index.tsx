@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target, Quote, Calculator, Map } from "lucide-react";
+import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target, Quote, Calculator, Map, Leaf } from "lucide-react";
 import heroPort from "@/assets/hero-port.jpg";
 import { SiteLayout, Section, Eyebrow, CtaButtons, CtaBand } from "@/components/site/SiteLayout";
 import { ChecklistForm } from "@/components/site/forms";
@@ -148,12 +148,12 @@ function Index() {
         </div>
       </Section>
 
-      {/* Gratis tools - Calculator + DMS Checklist + Roadmap */}
+      {/* Gratis tools - Calculator + DMS Checklist + Roadmap + CBAM */}
       <Section>
         <Eyebrow>Gratis tools</Eyebrow>
-        <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Bereken, check en plan je import</h2>
-        <p className="mt-4 max-w-2xl text-muted-foreground">Drie gratis tools voor importeurs en transportbedrijven. Direct te gebruiken, zonder account.</p>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Bereken, check, plan en controleer je import</h2>
+        <p className="mt-4 max-w-2xl text-muted-foreground">Vier gratis tools voor importeurs en transportbedrijven. Direct te gebruiken, zonder account.</p>
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           <div className="rounded-xl border bg-card p-7 shadow-card">
             <Calculator className="h-8 w-8 text-primary" />
             <h3 className="mt-4 text-xl font-semibold">Importkosten Calculator</h3>
@@ -176,6 +176,17 @@ function Index() {
               <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Deel hem met je collega</li>
             </ul>
             <Button asChild className="mt-5"><Link to="/import-roadmap">Maak mijn roadmap <ArrowRight /></Link></Button>
+          </div>
+          <div className="rounded-xl border bg-card p-7 shadow-card">
+            <Leaf className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">CBAM Check</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Importeer je staal, aluminium of cement? Check in 2 minuten of CBAM voor jou geldt of je vrijgesteld bent.</p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> 50 ton drempel check</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Direct weten of je moet aanmelden</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Deadlines tot 30 september 2027</li>
+            </ul>
+            <Button asChild className="mt-5"><Link to="/cbam-check">Check mijn CBAM status <ArrowRight /></Link></Button>
           </div>
         </div>
       </Section>
