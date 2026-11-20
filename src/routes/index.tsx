@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target, Quote, Calculator, Map, Leaf, Package, Fuel, ClipboardCheck, Scale, Timer, Search, TreePine } from "lucide-react";
+import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target, Quote, Calculator, Map, Leaf, Package, Fuel, ClipboardCheck, Scale, Timer, Search, TreePine, Warehouse, RotateCcw } from "lucide-react";
 import heroPort from "@/assets/hero-port.jpg";
 import { SiteLayout, Section, Eyebrow, CtaButtons, CtaBand } from "@/components/site/SiteLayout";
 import { ChecklistForm } from "@/components/site/forms";
@@ -287,7 +287,47 @@ function Index() {
           </div>
         </div>
       </Section>
-
+      {/* Gratis tools - Logistiek */}
+      <Section>
+        <Eyebrow>Gratis tools - Logistiek</Eyebrow>
+        <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Handige tools voor magazijn en logistiek</h2>
+        <p className="mt-4 max-w-2xl text-muted-foreground">Drie gratis tools voor magazijn, orderpickers en logistieke bedrijven. Direct te gebruiken, zonder account.</p>
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="rounded-xl border bg-card p-7 shadow-card">
+            <Warehouse className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">Opslagkosten Calculator</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Wat kost je palletplek per maand echt? Bereken je totale opslagkosten, per pallet en per jaar.</p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Kosten per palletplaats</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Totale kosten per maand</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Kosten per jaar</li>
+            </ul>
+            <Button asChild className="mt-5"><Link to="/opslagkosten-calculator">Bereken opslagkosten <ArrowRight /></Link></Button>
+          </div>
+          <div className="rounded-xl border bg-card p-7 shadow-card">
+            <ClipboardCheck className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">Orderpick Checklist</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Staat je order compleet voor verzending? Vink af en voorkom fouten en retouren.</p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> 8 controlepunten</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Direct % compleet</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Voorkom retouren</li>
+            </ul>
+            <Button asChild className="mt-5"><Link to="/orderpick-checklist">Check mijn order <ArrowRight /></Link></Button>
+          </div>
+          <div className="rounded-xl border bg-card p-7 shadow-card">
+            <RotateCcw className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">Retourkosten Calculator</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Wat kost die retour je echt? Verzendkosten, arbeid, inspectie en herverpakking in 1 overzicht.</p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Kosten per retour</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Arbeid + verzending</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Kosten per jaar</li>
+            </ul>
+            <Button asChild className="mt-5"><Link to="/retourkosten-calculator">Bereken retourkosten <ArrowRight /></Link></Button>
+          </div>
+        </div>
+      </Section>
       {/* Checklist lead magnet */}
       <section className="bg-navy px-5 py-20 text-navy-foreground">
         <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center">
