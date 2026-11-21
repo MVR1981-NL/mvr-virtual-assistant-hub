@@ -9,6 +9,7 @@ export const Route = createFileRoute("/opslagkosten-calculator")({
   head: () => pageHead(
     "Opslagkosten Calculator - Wat kost je palletplek echt? | MVR",
     "Bereken je totale opslagkosten per maand, per pallet en per jaar. Gratis voor logistieke bedrijven.",
+    "/opslagkosten-calculator",
   ),
   component: Opslagkosten,
 });
