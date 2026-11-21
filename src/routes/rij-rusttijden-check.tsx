@@ -9,6 +9,7 @@ export const Route = createFileRoute("/rij-rusttijden-check")({
   head: () => pageHead(
     "Rij- en Rusttijden Check - Mag je chauffeur nog doorrijden? | MVR",
     "Check dagelijkse rijtijd, wekelijkse rijtijd en verplichte rust volgens EU 561/2006. Gratis voor transporteurs en planners.",
+    "/rij-rusttijden-check",
   ),
   component: RijRustCheck,
 });
