@@ -14,8 +14,8 @@ const REVIEW = {
 
 export const Route = createFileRoute("/")({
   head: () => ({ ...pageHead(
-    "Logistieke administratie & douane uitbesteden | MVR",
-    "Marcel van Roosendaal ondersteunt importeurs en logistieke bedrijven met douane-administratie, documenten en data-entry in jouw systemen. Vraag een gratis check aan.",
+    "Logistieke en douane-administratie uitbesteden | MVR",
+    "Ik ben Marcel van Roosendaal. Ik neem planbare logistieke en douane-administratie over voor importeurs, handelsbedrijven en expediteurs. Vertel wat blijft liggen.",
   ), scripts: [
     { type: "application/ld+json", children: JSON.stringify(BUSINESS_JSONLD) },
   ] }),
@@ -35,6 +35,50 @@ const STEPS = [
   { n: "03", title: "MVR gaat aan de slag", text: "De werkzaamheden worden op afstand en op afgesproken momenten uitgevoerd. Jij houdt overzicht en regie." },
 ];
 
+const TOOL_GROUPS = [
+  {
+    icon: FileText,
+    title: "Douane Tools",
+    text: "Voor importeurs en handelsbedrijven. Bereken, check en plan je import.",
+    tools: [
+      { to: "/importkosten-calculator", label: "Importkosten Calculator" },
+      { to: "/import-roadmap", label: "Persoonlijke Import Roadmap" },
+      { to: "/cbam-check", label: "CBAM Check" },
+      { to: "/hs-code-check", label: "HS-code Check" },
+      { to: "/eudr-check", label: "EUDR Check" },
+    ],
+    overview: "/douane-tools",
+    overviewLabel: "Alle douanetools",
+  },
+  {
+    icon: Package,
+    title: "Transport Tools",
+    text: "Voor planners, chauffeurs en transportbedrijven. Direct te gebruiken.",
+    tools: [
+      { to: "/pallet-calculator", label: "Pallet Calculator" },
+      { to: "/transportkosten-calculator", label: "Transportkosten Calculator" },
+      { to: "/cmr-checklist", label: "CMR Checklist" },
+      { to: "/incoterms-kiezer", label: "Incoterms Kiezer" },
+      { to: "/rij-rusttijden-check", label: "Rij- en Rusttijden Check" },
+      { to: "/wachttijd-calculator", label: "Wachttijd Calculator" },
+    ],
+    overview: "/transport-tools",
+    overviewLabel: "Alle transporttools",
+  },
+  {
+    icon: Warehouse,
+    title: "Logistiek Tools",
+    text: "Voor magazijn, orderpickers en logistieke bedrijven.",
+    tools: [
+      { to: "/opslagkosten-calculator", label: "Opslagkosten Calculator" },
+      { to: "/orderpick-checklist", label: "Orderpick Checklist" },
+      { to: "/retourkosten-calculator", label: "Retourkosten Calculator" },
+    ],
+    overview: "/logistiek-tools",
+    overviewLabel: "Alle logistieke tools",
+  },
+];
+
 function Index() {
   return (
     <SiteLayout>
@@ -45,13 +89,13 @@ function Index() {
         <div className="relative mx-auto max-w-6xl px-5 py-8 md:py-20">
           <Eyebrow>Specialistische logistiek & douane ondersteuning</Eyebrow>
           <h1 className="mt-5 max-w-3xl text-3xl font-bold leading-tight md:text-6xl">
-            MVR Logistiek & Douane Ondersteuning
+            Logistieke en douane-administratie uitbesteden
           </h1>
           <p className="mt-6 max-w-2xl text-base text-navy-muted md:text-lg">
-            Blijven douanedossiers, documenten of ordergegevens liggen? Ik ben Marcel van Roosendaal. Ik neem planbare administratie over voor importeurs, handelsbedrijven en expediteurs — op afstand, waar mogelijk in jouw eigen systemen.
+            Ik ben Marcel van Roosendaal. Blijven douanedossiers, documenten of ordergegevens liggen? Ik neem planbare administratie over voor importeurs, handelsbedrijven en expediteurs — op afstand, waar mogelijk in jouw eigen systemen.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg" className="h-auto whitespace-normal px-6 py-3.5"><Link to="/contact" search={{ type: "check" }}>Bespreek mijn administratieve knelpunt <ArrowRight /></Link></Button>
+            <Button asChild size="lg" className="h-auto whitespace-normal px-6 py-3.5"><Link to="/contact" search={{ type: "check" }}>Vertel wat blijft liggen <ArrowRight /></Link></Button>
             <Button asChild variant="outline" size="lg" className="h-auto whitespace-normal border-navy-foreground/30 bg-transparent px-6 py-3.5 text-navy-foreground hover:bg-navy-foreground/10 hover:text-navy-foreground"><Link to="/diensten">Bekijk wat ik overneem</Link></Button>
           </div>
           <p className="mt-4 text-sm text-navy-muted">Gratis check · Vrijblijvend · Persoonlijk contact met Marcel</p>
@@ -144,28 +188,16 @@ function Index() {
         <div className="mt-10 border-t pt-8">
           <h3 className="text-xl font-semibold">Wat levert de gratis check je op?</h3>
           <p className="mt-3 max-w-2xl text-muted-foreground">We bespreken jouw knelpunt, welke taken je kunt overdragen en welke informatie daarvoor nodig is. Daarna bepalen we samen of ondersteuning past. Je zit nergens aan vast.</p>
-          <Button asChild className="mt-5 h-auto whitespace-normal py-3"><Link to="/contact" search={{ type: "check" }}>Vraag mijn gratis check aan <ArrowRight /></Link></Button>
+          <Button asChild className="mt-5 h-auto whitespace-normal py-3"><Link to="/contact" search={{ type: "check" }}>Vertel wat blijft liggen <ArrowRight /></Link></Button>
         </div>
       </Section>
 
-      {/* Gratis tools - Douane */}
+      {/* Featured tools */}
       <Section>
-        <Eyebrow>Gratis tools - Douane</Eyebrow>
-        <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Bereken, check, plan en controleer je import</h2>
-        <p className="mt-4 max-w-2xl text-muted-foreground">Zes gratis tools voor importeurs en transportbedrijven. Direct te gebruiken, zonder account.</p>
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          <div className="rounded-xl border bg-card p-7 shadow-card">
-            <Calculator className="h-8 w-8 text-primary" />
-            <h3 className="mt-4 text-xl font-semibold">Importkosten Calculator</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Bereken in 1 minuut je invoerrechten, BTW bij import en totale landed cost. Inclusief artikel 23 verlegging.</p>
-            <Button asChild className="mt-5"><Link to="/importkosten-calculator">Bereken je importkosten <ArrowRight /></Link></Button>
-          </div>
-          <div className="rounded-xl border bg-card p-7 shadow-card">
-            <FileText className="h-8 w-8 text-primary" />
-            <h3 className="mt-4 text-xl font-semibold">DMS 4.1 &amp; ICS2 Checklist</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Vink in 1 minuut af of je aangifte klopt. EORI, HS-code, douanewaarde, ENS-deadline en Portbase-melding.</p>
-            <Button asChild className="mt-5"><a href="/dms-ics2-checklist.pdf" target="_blank" rel="noreferrer">Download gratis checklist <ArrowRight /></a></Button>
-          </div>
+        <Eyebrow>Uitgelicht · Gratis tools</Eyebrow>
+        <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Start met 1 tool, zie direct waar je staat</h2>
+        <p className="mt-4 max-w-2xl text-muted-foreground">Deze 2 tools worden het meest gebruikt. In 2 minuten klaar, zonder account.</p>
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
           <div className="rounded-xl border bg-card p-7 shadow-card">
             <Map className="h-8 w-8 text-primary" />
             <h3 className="mt-4 text-xl font-semibold">Persoonlijke Import Roadmap</h3>
@@ -188,146 +220,35 @@ function Index() {
             </ul>
             <Button asChild className="mt-5"><Link to="/cbam-check">Check mijn CBAM status <ArrowRight /></Link></Button>
           </div>
-          <div className="rounded-xl border bg-card p-7 shadow-card">
-            <Search className="h-8 w-8 text-primary" />
-            <h3 className="mt-4 text-xl font-semibold">HS-code Check</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Wat is de HS-code van mijn product? Check HS-code, tarief en EUDR in 1 keer.</p>
-            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> HS-code direct</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Invoertarief indicatie</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> EUDR ja / nee</li>
-            </ul>
-            <Button asChild className="mt-5"><Link to="/hs-code-check">Check mijn HS-code <ArrowRight /></Link></Button>
-          </div>
-          <div className="rounded-xl border bg-card p-7 shadow-card">
-            <TreePine className="h-8 w-8 text-primary" />
-            <h3 className="mt-4 text-xl font-semibold">EUDR Check</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Valt mijn product onder de ontbossingsregels? Check of je due diligence moet doen.</p>
-            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> 7 grondstoffen</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Geolocatie check</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Due diligence check</li>
-            </ul>
-            <Button asChild className="mt-5"><Link to="/eudr-check">Check mijn EUDR <ArrowRight /></Link></Button>
-          </div>
         </div>
       </Section>
 
-      {/* Gratis tools - Transport & Logistiek */}
+      {/* All tools - 3 groups */}
       <Section className="bg-muted">
-        <Eyebrow>Gratis tools - Transport &amp; Logistiek</Eyebrow>
-        <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Handige tools voor transporteurs en logistieke bedrijven</h2>
-        <p className="mt-4 max-w-2xl text-muted-foreground">Zes gratis tools voor planners, chauffeurs en logistieke bedrijven. Direct te gebruiken, zonder account.</p>
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          <div className="rounded-xl border bg-card p-7 shadow-card">
-            <Package className="h-8 w-8 text-primary" />
-            <h3 className="mt-4 text-xl font-semibold">Pallet Calculator</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Hoeveel euro-pallets passen in je trailer? En hoeveel laadmeters is dat? In 30 seconden uitgerekend.</p>
-            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Euro-pallet 120 x 80 cm</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Blokpallet 100 x 120 cm</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Laadmeters direct erbij</li>
-            </ul>
-            <Button asChild className="mt-5"><Link to="/pallet-calculator">Bereken pallets <ArrowRight /></Link></Button>
-          </div>
-          <div className="rounded-xl border bg-card p-7 shadow-card">
-            <Fuel className="h-8 w-8 text-primary" />
-            <h3 className="mt-4 text-xl font-semibold">Transportkosten Calculator</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Wat kost deze rit echt? Diesel, tol, chauffeur en afschrijving. Direct je kostprijs per km en per pallet.</p>
-            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Kostprijs per km</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Per pallet / per rit</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Marge check</li>
-            </ul>
-            <Button asChild className="mt-5"><Link to="/transportkosten-calculator">Bereken ritkosten <ArrowRight /></Link></Button>
-          </div>
-          <div className="rounded-xl border bg-card p-7 shadow-card">
-            <ClipboardCheck className="h-8 w-8 text-primary" />
-            <h3 className="mt-4 text-xl font-semibold">CMR Checklist</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Staat alles op je CMR wat er op moet staan? Vink af voor vertrek en voorkom discussie bij lossen.</p>
-            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Verplichte velden</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Foto + handtekening</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Wachttijd log</li>
-            </ul>
-            <Button asChild className="mt-5"><Link to="/cmr-checklist">Check mijn CMR <ArrowRight /></Link></Button>
-          </div>
-          <div className="rounded-xl border bg-card p-7 shadow-card">
-            <Scale className="h-8 w-8 text-primary" />
-            <h3 className="mt-4 text-xl font-semibold">Incoterms Kiezer</h3>
-            <p className="mt-2 text-sm text-muted-foreground">EXW, FOB, DAP of DDP? Beantwoord 3 vragen en zie wie betaalt, wie regelt en waar het risico overgaat.</p>
-            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Wie betaalt transport?</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Wie doet douane?</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Waar gaat risico over?</li>
-            </ul>
-            <Button asChild className="mt-5"><Link to="/incoterms-kiezer">Kies mijn Incoterm <ArrowRight /></Link></Button>
-          </div>
-          <div className="rounded-xl border bg-card p-7 shadow-card">
-            <Clock className="h-8 w-8 text-primary" />
-            <h3 className="mt-4 text-xl font-semibold">Rij- en Rusttijden Check</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Mag je chauffeur nog doorrijden? Check dagelijkse rijtijd, wekelijkse rijtijd en verplichte rust.</p>
-            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> 9u / 10u regel</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> 56u weekmax</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> 11u rust</li>
-            </ul>
-            <Button asChild className="mt-5"><Link to="/rij-rusttijden-check">Check rijtijd <ArrowRight /></Link></Button>
-          </div>
-          <div className="rounded-xl border bg-card p-7 shadow-card">
-            <Timer className="h-8 w-8 text-primary" />
-            <h3 className="mt-4 text-xl font-semibold">Wachttijd Calculator</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Hoeveel wachttijd kan je factureren? Log aankomst, start laden en vertrek en bereken direct je bedrag.</p>
-            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Vrije wachttijd instelbaar</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Uurtarief instelbaar</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Direct bedrag voor factuur</li>
-            </ul>
-            <Button asChild className="mt-5"><Link to="/wachttijd-calculator">Bereken wachttijd <ArrowRight /></Link></Button>
-          </div>
+        <Eyebrow>Gratis tools</Eyebrow>
+        <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Alle tools, per vakgebied</h2>
+        <p className="mt-4 max-w-2xl text-muted-foreground">15 gratis tools voor importeurs, transporteurs en logistieke bedrijven. Direct te gebruiken, zonder account.</p>
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {TOOL_GROUPS.map((g) => (
+            <div key={g.title} className="rounded-xl border bg-card p-7 shadow-card">
+              <g.icon className="h-8 w-8 text-primary" />
+              <h3 className="mt-4 text-xl font-semibold">{g.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{g.text}</p>
+              <ul className="mt-5 space-y-2.5">
+                {g.tools.map((t) => (
+                  <li key={t.to}>
+                    <Link to={t.to} className="group inline-flex items-center gap-2 text-sm font-medium hover:underline">
+                      <ArrowRight className="h-4 w-4 shrink-0 text-primary" /> {t.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <Button asChild variant="outline" className="mt-6 w-full"><Link to={g.overview}>{g.overviewLabel} <ArrowRight /></Link></Button>
+            </div>
+          ))}
         </div>
       </Section>
-      {/* Gratis tools - Logistiek */}
-      <Section>
-        <Eyebrow>Gratis tools - Logistiek</Eyebrow>
-        <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Handige tools voor magazijn en logistiek</h2>
-        <p className="mt-4 max-w-2xl text-muted-foreground">Drie gratis tools voor magazijn, orderpickers en logistieke bedrijven. Direct te gebruiken, zonder account.</p>
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          <div className="rounded-xl border bg-card p-7 shadow-card">
-            <Warehouse className="h-8 w-8 text-primary" />
-            <h3 className="mt-4 text-xl font-semibold">Opslagkosten Calculator</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Wat kost je palletplek per maand echt? Bereken je totale opslagkosten, per pallet en per jaar.</p>
-            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Kosten per palletplaats</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Totale kosten per maand</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Kosten per jaar</li>
-            </ul>
-            <Button asChild className="mt-5"><Link to="/opslagkosten-calculator">Bereken opslagkosten <ArrowRight /></Link></Button>
-          </div>
-          <div className="rounded-xl border bg-card p-7 shadow-card">
-            <ClipboardCheck className="h-8 w-8 text-primary" />
-            <h3 className="mt-4 text-xl font-semibold">Orderpick Checklist</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Staat je order compleet voor verzending? Vink af en voorkom fouten en retouren.</p>
-            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> 8 controlepunten</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Direct % compleet</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Voorkom retouren</li>
-            </ul>
-            <Button asChild className="mt-5"><Link to="/orderpick-checklist">Check mijn order <ArrowRight /></Link></Button>
-          </div>
-          <div className="rounded-xl border bg-card p-7 shadow-card">
-            <RotateCcw className="h-8 w-8 text-primary" />
-            <h3 className="mt-4 text-xl font-semibold">Retourkosten Calculator</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Wat kost die retour je echt? Verzendkosten, arbeid, inspectie en herverpakking in 1 overzicht.</p>
-            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Kosten per retour</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Arbeid + verzending</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Kosten per jaar</li>
-            </ul>
-            <Button asChild className="mt-5"><Link to="/retourkosten-calculator">Bereken retourkosten <ArrowRight /></Link></Button>
-          </div>
-        </div>
-      </Section>
+
       {/* Checklist lead magnet */}
       <section className="bg-navy px-5 py-20 text-navy-foreground">
         <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center">
