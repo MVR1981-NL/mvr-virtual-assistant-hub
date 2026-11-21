@@ -73,6 +73,15 @@ function CmrChecklist() {
           <Button asChild><Link to="/wachttijd-calculator">Bereken je wachttijd <ArrowRight /></Link></Button>
           <Button asChild variant="outline"><Link to="/transport-tools">Alle transport tools</Link></Button>
         </div>
+
+        <div className="mt-8 rounded-xl border bg-card p-6 shadow-card">
+          <h2 className="text-lg font-bold">Blijft dit soort documentwerk liggen?</h2>
+          <p className="mt-1 text-sm text-muted-foreground">MVR neemt planbare document- en dossieradministratie over — van CMR-controle tot complete dossiers. Zo hoef jij dit niet na elke rit zelf na te jagen.</p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Button asChild><Link to="/diensten">Bekijk wat ik overneem <ArrowRight /></Link></Button>
+            <Button asChild variant="outline"><Link to="/contact" search={{ type: "check" }}>Vertel wat blijft liggen</Link></Button>
+          </div>
+        </div>
       </Section>
     </SiteLayout>
   );
