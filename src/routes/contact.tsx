@@ -28,13 +28,13 @@ function Contact() {
   return (
     <SiteLayout>
       <PageHero eyebrow="Contact" title="Vertel wat blijft liggen" intro="Vertel kort welke werkzaamheden blijven liggen. Marcel neemt persoonlijk contact met je op om te kijken of er een match is." />
-      <Section className="-mt-12 pt-0 md:pt-0">
+      <Section className="pt-0 md:pt-0">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2">
             {pakketLabel && (
-              <div className="mb-5 rounded-xl border border-primary/30 bg-primary/5 p-4">
-                <p className="font-semibold">Je vraagt naar {pakketLabel}</p>
-                <p className="mt-1 text-sm text-muted-foreground">Vertel kort welk werk blijft liggen en wanneer dat vooral speelt. Ik lees je bericht zelf en laat weten welke taken ik kan overnemen en welke informatie ik daarvoor nodig heb.</p>
+              <div className="relative z-10 mb-5 rounded-xl border border-amber-200 bg-amber-50 p-5 shadow-card">
+                <p className="font-semibold text-slate-900">Je vraagt naar {pakketLabel}</p>
+                <p className="mt-1 text-sm text-slate-600">Vertel kort welk werk blijft liggen en wanneer dat vooral speelt. Ik lees je bericht zelf en laat weten welke taken ik kan overnemen en welke informatie ik daarvoor nodig heb.</p>
               </div>
             )}
             <LeadForm key={`${type ?? "check"}-${pakket ?? ""}`} initialType={type ?? "check"} initialPakket={pakket} />
