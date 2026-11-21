@@ -62,6 +62,7 @@ function ImportkostenCalculator() {
     <SiteLayout>
       <PageHero eyebrow="Calculator" title="Wat kost import uit buiten de EU nou echt?" intro="Vul je goederenwaarde, transport en verzekering in en zie direct je invoerrechten, BTW bij import en totale landed cost." />
       <Section>
+        <img src="/site-assets/Customs.jpg" alt="Customs declaration document" className="w-full h-64 object-cover rounded-2xl mb-8" />
         <div className="mx-auto max-w-3xl">
           <div className="rounded-xl border bg-card p-6 shadow-card">
             <label className="block text-sm font-semibold">Goederenwaarde in euro</label>
