@@ -25,6 +25,7 @@ function TransportTools() {
   return (
     <SiteLayout>
       <Section>
+        <img src="/site-assets/transport-truck.jpg" alt="Truck op snelweg bij zonsondergang" className="w-full h-64 object-cover rounded-2xl mb-8" />
         <Eyebrow>Gratis tools - Transport &amp; Logistiek</Eyebrow>
         <h1 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Handige tools voor transporteurs en logistieke bedrijven</h1>
         <p className="mt-4 max-w-2xl text-muted-foreground">Zes gratis tools voor planners, chauffeurs en logistieke bedrijven. Direct te gebruiken, zonder account. Gemaakt vanuit de praktijk.</p>
