@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout, PageHero, Section } from "@/components/site/SiteLayout";
 import { pageHead } from "@/lib/site";
@@ -106,10 +106,14 @@ function ImportkostenCalculator() {
           <p className="mt-4 text-xs text-muted-foreground">Dit is een indicatie op basis van de door jou ingevulde gegevens, zonder accijns en zonder antidumpingrechten. Voor een exacte berekening op basis van je HS-code, vraag een gratis check aan.</p>
 
           <div className="mt-6 rounded-xl border bg-card p-5 shadow-card">
-            <h2 className="text-lg font-bold">Wil je dat ik dit voor jouw zending check?</h2>
-            <p className="mt-1 text-sm text-muted-foreground">Stuur je HS-code, factuurwaarde en transportkosten en ik check je berekening, je artikel 23 en je DMS 4.1 aangifte.</p>
-            <a href="/" className="mt-3 inline-block rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white">Vraag de gratis check aan</a>
-            <a href="/dms-ics2-checklist.pdf" className="ml-3 inline-block text-sm font-semibold underline">Download de DMS 4.1 en ICS2 Checklist</a>
+            <h2 className="text-lg font-bold">Wil je dit werk niet zelf blijven doen?</h2>
+            <p className="mt-1 text-sm text-muted-foreground">MVR neemt je douane-administratie over — van berekening tot aangifte en dossier. Zo hoef jij dit niet elke keer zelf uit te zoeken.</p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link to="/douane-administratie" className="inline-block rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white">Bekijk douane-administratie</Link>
+              <Link to="/contact" search={{ type: "check" }} className="inline-block rounded-lg border px-4 py-2.5 text-sm font-semibold">Vertel wat blijft liggen</Link>
+            </div>
+            <p className="mt-4 text-sm text-muted-foreground">Of wil je dat ik dit voor jouw zending check? Stuur je HS-code, factuurwaarde en transportkosten en ik check je berekening, je artikel 23 en je DMS 4.1 aangifte.</p>
+            <a href="/dms-ics2-checklist.pdf" className="mt-2 inline-block text-sm font-semibold underline">Download de DMS 4.1 en ICS2 Checklist</a>
           </div>
 
           <div className="mt-8">
