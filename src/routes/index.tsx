@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target, Quote, Calculator, Package, Fuel, ClipboardCheck, Scale, Timer, Search, TreePine, Warehouse, RotateCcw } from "lucide-react";
 import heroPort from "@/assets/hero-port.jpg";
 import { SiteLayout, Section, Eyebrow, CtaButtons, CtaBand } from "@/components/site/SiteLayout";
@@ -79,31 +80,71 @@ const TOOL_GROUPS = [
   },
 ];
 
+const DEMO = {
+  cmr: {
+    label: "Openstaande CMR's",
+    delivers: "Een overzicht met ritten waarvoor nog documenten ontbreken.",
+    takesOver: "Ik zoek uit welke CMR's ontbreken, volg ze op bij vervoerders en werk de ritstatus bij in jouw systeem.",
+    returns: "Een bijgewerkt overzicht met wat binnen is, wat uitstaat en wie de volgende actie heeft.",
+    rows: [
+      { id: "Rit 214 · Rotterdam > München", status: "Opgevraagd" },
+      { id: "Rit 218 · Roosendaal > Antwerpen", status: "Ontvangen" },
+      { id: "Rit 221 · Venlo > Duisburg", status: "Actie nodig" },
+    ],
+  },
+  import: {
+    label: "Importdossiers",
+    delivers: "Een overzicht van open zendingen en de documenten die al binnen zijn.",
+    takesOver: "Ik breng ontbrekende stukken in kaart, volg ze op bij de afgesproken contactpersonen en werk de dossiers bij.",
+    returns: "Een overzicht per zending met de dossierstatus, open acties en eventuele vragen aan de broker.",
+    rows: [
+      { id: "Zending HB-1042 · Shanghai > Rotterdam", status: "Ontvangen" },
+      { id: "Zending HB-1047 · Istanbul > Roosendaal", status: "Opgevraagd" },
+      { id: "Zending HB-1051 · Mumbai > Antwerpen", status: "Actie nodig" },
+    ],
+  },
+} as const;
+
+function statusClass(status: string) {
+  if (status === "Ontvangen") return "bg-green-100 text-green-800";
+  if (status === "Opgevraagd") return "bg-amber-100 text-amber-800";
+  return "bg-red-100 text-red-800";
+}
+
 function Index() {
+  const [activeTab, setActiveTab] = useState<"cmr" | "import">("cmr");
+  const demo = DEMO[activeTab];
+
   return (
     <SiteLayout>
       {/* Hero */}
       <section className="relative overflow-hidden bg-navy text-navy-foreground">
         <img src={heroPort} alt="Containerterminal in de haven bij zonsondergang" width={1600} height={912} className="absolute inset-0 h-full w-full object-cover opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/30" />
-        <div className="relative mx-auto max-w-6xl px-5 py-8 md:py-20">
-          <Eyebrow>Specialistische logistiek & douane ondersteuning</Eyebrow>
-          <h1 className="mt-5 max-w-3xl text-3xl font-bold leading-tight md:text-6xl">
-            Logistieke en douane-administratie uitbesteden
-          </h1>
-          <p className="mt-6 max-w-2xl text-base text-navy-muted md:text-lg">
-            Ik ben Marcel van Roosendaal. Blijven douanedossiers, documenten of ordergegevens liggen? Ik neem planbare administratie over voor importeurs, handelsbedrijven en expediteurs — op afstand, waar mogelijk in jouw eigen systemen.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild size="lg" className="h-auto whitespace-normal px-6 py-3.5"><Link to="/contact" search={{ type: "check" }}>Vertel wat blijft liggen <ArrowRight /></Link></Button>
-            <Button asChild variant="outline" size="lg" className="h-auto whitespace-normal border-navy-foreground/30 bg-transparent px-6 py-3.5 text-navy-foreground hover:bg-navy-foreground/10 hover:text-navy-foreground"><Link to="/diensten">Bekijk wat ik overneem</Link></Button>
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-5 py-8 md:grid-cols-2 md:items-center md:py-20">
+          <div>
+            <Eyebrow>Specialistische logistiek & douane ondersteuning</Eyebrow>
+            <h1 className="mt-5 max-w-3xl text-3xl font-bold leading-tight md:text-6xl">
+              Logistieke en douane-administratie uitbesteden
+            </h1>
+            <p className="mt-6 max-w-2xl text-base text-navy-muted md:text-lg">
+              Ik ben Marcel van Roosendaal. Blijven douanedossiers, documenten of ordergegevens liggen? Ik neem planbare administratie over voor importeurs, transportbedrijven, handelsbedrijven en expediteurs — op afstand, in jouw eigen systemen.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button asChild size="lg" className="h-auto whitespace-normal px-6 py-3.5"><Link to="/contact" search={{ type: "check" }}>Vertel wat blijft liggen <ArrowRight /></Link></Button>
+              <Button asChild variant="outline" size="lg" className="h-auto whitespace-normal border-navy-foreground/30 bg-transparent px-6 py-3.5 text-navy-foreground hover:bg-navy-foreground/10 hover:text-navy-foreground"><Link to="/diensten">Bekijk wat ik overneem</Link></Button>
+            </div>
+            <p className="mt-4 text-sm text-navy-muted">Gratis check · Vrijblijvend · Persoonlijk contact met Marcel</p>
+            <dl className="mt-8 grid max-w-2xl grid-cols-3 gap-3 border-t border-navy-foreground/15 pt-6">
+              <div><dt className="font-display text-2xl font-bold sm:text-3xl">29+ jaar</dt><dd className="mt-1 text-sm text-navy-muted">logistiek & warehouses</dd></div>
+              <div><dt className="font-display text-2xl font-bold sm:text-3xl">7+ jaar</dt><dd className="mt-1 text-sm text-navy-muted">douane-praktijk</dd></div>
+              <div><dt className="font-display text-2xl font-bold sm:text-3xl">10–25u</dt><dd className="mt-1 text-sm text-navy-muted">flexibel per maand</dd></div>
+            </dl>
           </div>
-          <p className="mt-4 text-sm text-navy-muted">Gratis check · Vrijblijvend · Persoonlijk contact met Marcel</p>
-          <dl className="mt-8 grid max-w-2xl grid-cols-3 gap-3 border-t border-navy-foreground/15 pt-6">
-            <div><dt className="font-display text-2xl font-bold sm:text-3xl">29+ jaar</dt><dd className="mt-1 text-sm text-navy-muted">logistiek & warehouses</dd></div>
-            <div><dt className="font-display text-2xl font-bold sm:text-3xl">7+ jaar</dt><dd className="mt-1 text-sm text-navy-muted">douane-praktijk</dd></div>
-            <div><dt className="font-display text-2xl font-bold sm:text-3xl">10–25u</dt><dd className="mt-1 text-sm text-navy-muted">flexibel per maand</dd></div>
-          </dl>
+          <div className="hidden md:block">
+            <img src="/site-assets/af32087001650710.webp" alt="Marcel van Roosendaal aan het werk" loading="eager" width={586} height={783} className="w-full rounded-2xl object-cover shadow-card" />
+            <p className="mt-3 text-center text-sm text-navy-muted">Marcel van Roosendaal · MVR Virtual Assistant</p>
+          </div>
         </div>
       </section>
 
@@ -150,8 +191,53 @@ function Index() {
         </Link>
       </Section>
 
-      {/* Why */}
+      {/* Demo - Zo ziet de overdracht eruit */}
       <Section>
+        <Eyebrow>Zo ziet de overdracht eruit</Eyebrow>
+        <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Jij levert aan, ik werk bij, jij houdt overzicht</h2>
+        <p className="mt-4 max-w-2xl text-muted-foreground">Klik op een tabblad en zie wat je aanlevert, wat ik overneem en wat je terugkrijgt. Zo werkt het ook in jouw bedrijf.</p>
+
+        <div className="mt-8 flex flex-wrap gap-2">
+          <button type="button" onClick={() => setActiveTab("cmr")} className={`rounded-full px-5 py-2.5 text-sm font-semibold ${activeTab === "cmr" ? "bg-primary text-primary-foreground" : "border bg-card hover:bg-muted"}`}>Openstaande CMR's</button>
+          <button type="button" onClick={() => setActiveTab("import")} className={`rounded-full px-5 py-2.5 text-sm font-semibold ${activeTab === "import" ? "bg-primary text-primary-foreground" : "border bg-card hover:bg-muted"}`}>Importdossiers</button>
+        </div>
+
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <div className="rounded-xl border bg-card p-6 shadow-card">
+            <p className="text-sm font-semibold text-primary">1 · Wat jij aanlevert</p>
+            <p className="mt-3 text-sm text-muted-foreground">{demo.delivers}</p>
+          </div>
+          <div className="rounded-xl border bg-card p-6 shadow-card">
+            <p className="text-sm font-semibold text-primary">2 · Wat ik overneem</p>
+            <p className="mt-3 text-sm text-muted-foreground">{demo.takesOver}</p>
+          </div>
+          <div className="rounded-xl border bg-card p-6 shadow-card">
+            <p className="text-sm font-semibold text-primary">3 · Wat jij terugkrijgt</p>
+            <p className="mt-3 text-sm text-muted-foreground">{demo.returns}</p>
+          </div>
+        </div>
+
+        <div className="mt-6 overflow-hidden rounded-xl border bg-card shadow-card">
+          <div className="flex items-center justify-between border-b px-6 py-4">
+            <h3 className="font-semibold">{demo.label} · Voorbeeld</h3>
+            <span className="text-xs text-muted-foreground">Voorbeeld met fictieve gegevens</span>
+          </div>
+          <div className="divide-y">
+            {demo.rows.map((r) => (
+              <div key={r.id} className="flex items-center justify-between gap-4 px-6 py-4">
+                <span className="text-sm font-medium">{r.id}</span>
+                <span className={`shrink-0 rounded-full px-3 py-1 text-xs font-semibold ${statusClass(r.status)}`}>{r.status}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <p className="mt-3 text-xs text-muted-foreground">Voorbeeld met fictieve gegevens, om te laten zien hoe je overzicht eruit ziet na de overdracht.</p>
+
+        <Button asChild className="mt-6 h-auto whitespace-normal py-3"><Link to="/contact" search={{ type: "check" }}>Vertel wat blijft liggen <ArrowRight /></Link></Button>
+      </Section>
+
+      {/* Why */}
+      <Section className="bg-muted">
         <div className="grid gap-12 md:grid-cols-5 md:items-center">
           <div className="md:col-span-2">
             <img src="/site-assets/af32087001650710.webp" alt="Marcel van Roosendaal aan het werk" loading="lazy" width={586} height={783} className="w-full rounded-2xl object-cover shadow-card" />
@@ -173,7 +259,7 @@ function Index() {
       </Section>
 
       {/* Steps */}
-      <Section className="bg-muted">
+      <Section>
         <Eyebrow>Zo werkt het</Eyebrow>
         <h2 className="mt-3 text-3xl font-bold md:text-4xl">Geen ingewikkeld traject. In drie stappen aan de slag.</h2>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -193,7 +279,7 @@ function Index() {
       </Section>
 
       {/* Featured tools */}
-      <Section>
+      <Section className="bg-muted">
         <Eyebrow>Uitgelicht · Gratis tools</Eyebrow>
         <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Start met 1 tool, zie direct waar je staat</h2>
         <p className="mt-4 max-w-2xl text-muted-foreground">Eén voor importeurs, één voor transportbedrijven. In 2 minuten klaar, zonder account.</p>
@@ -223,28 +309,14 @@ function Index() {
         </div>
       </Section>
 
-      {/* All tools - 3 groups */}
-      <Section className="bg-muted">
+      {/* All tools - compact */}
+      <Section>
         <Eyebrow>Gratis tools</Eyebrow>
-        <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Alle tools, per vakgebied</h2>
-        <p className="mt-4 max-w-2xl text-muted-foreground">15 gratis tools voor importeurs, transporteurs en logistieke bedrijven. Direct te gebruiken, zonder account.</p>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Alle 15 tools, per vakgebied</h2>
+        <p className="mt-4 max-w-2xl text-muted-foreground">Direct te gebruiken, zonder account. Kies je vakgebied en je ziet alle tools die daarbij horen.</p>
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
           {TOOL_GROUPS.map((g) => (
-            <div key={g.title} className="rounded-xl border bg-card p-7 shadow-card">
-              <g.icon className="h-8 w-8 text-primary" />
-              <h3 className="mt-4 text-xl font-semibold">{g.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{g.text}</p>
-              <ul className="mt-5 space-y-2.5">
-                {g.tools.map((t) => (
-                  <li key={t.to}>
-                    <Link to={t.to} className="group inline-flex items-center gap-2 text-sm font-medium hover:underline">
-                      <ArrowRight className="h-4 w-4 shrink-0 text-primary" /> {t.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <Button asChild variant="outline" className="mt-6 w-full"><Link to={g.overview}>{g.overviewLabel} <ArrowRight /></Link></Button>
-            </div>
+            <Button key={g.title} asChild variant="outline" className="h-auto justify-between whitespace-normal px-6 py-4"><Link to={g.overview}>{g.title} <ArrowRight /></Link></Button>
           ))}
         </div>
       </Section>
