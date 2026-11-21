@@ -87,9 +87,9 @@ const DEMO = {
     takesOver: "Ik zoek uit welke CMR's ontbreken, volg ze op bij vervoerders en werk de ritstatus bij in jouw systeem.",
     returns: "Een bijgewerkt overzicht met wat binnen is, wat uitstaat en wie de volgende actie heeft.",
     rows: [
-      { id: "Rit 214 · Rotterdam > München", status: "Opgevraagd" },
-      { id: "Rit 218 · Roosendaal > Antwerpen", status: "Ontvangen" },
-      { id: "Rit 221 · Venlo > Duisburg", status: "Actie nodig" },
+      { id: "Rit 214 · Rotterdam > München", status: "Opgevraagd", action: "Marcel volgt op bij de vervoerder." },
+      { id: "Rit 218 · Roosendaal > Antwerpen", status: "Ontvangen", action: "CMR verwerkt. Deze rit is administratief bijgewerkt." },
+      { id: "Rit 221 · Venlo > Duisburg", status: "Actie nodig", action: "Planning bevestigt het losadres. Marcel vraagt daarna de CMR opnieuw op." },
     ],
   },
   import: {
@@ -98,9 +98,9 @@ const DEMO = {
     takesOver: "Ik breng ontbrekende stukken in kaart, volg ze op bij de afgesproken contactpersonen en werk de dossiers bij.",
     returns: "Een overzicht per zending met de dossierstatus, open acties en eventuele vragen aan de broker.",
     rows: [
-      { id: "Zending HB-1042 · Shanghai > Rotterdam", status: "Ontvangen" },
-      { id: "Zending HB-1047 · Istanbul > Roosendaal", status: "Opgevraagd" },
-      { id: "Zending HB-1051 · Mumbai > Antwerpen", status: "Actie nodig" },
+      { id: "Zending HB-1042 · Shanghai > Rotterdam", status: "Ontvangen", action: "Dossier compleet. Klaar voor archief." },
+      { id: "Zending HB-1047 · Istanbul > Roosendaal", status: "Opgevraagd", action: "Marcel volgt op bij de afgesproken contactpersoon." },
+      { id: "Zending HB-1051 · Mumbai > Antwerpen", status: "Actie nodig", action: "Broker bevestigt de ontbrekende stukken. Daarna werkt Marcel het dossier bij." },
     ],
   },
 } as const;
@@ -128,7 +128,7 @@ function Index() {
               Logistieke en douane-administratie uitbesteden
             </h1>
             <p className="mt-6 max-w-2xl text-base text-navy-muted md:text-lg">
-              Ik ben Marcel van Roosendaal. Blijven douanedossiers, documenten of ordergegevens liggen? Ik neem planbare administratie over voor importeurs, transportbedrijven, handelsbedrijven en expediteurs — op afstand, in jouw eigen systemen.
+              Ik ben Marcel van Roosendaal. Blijven douanedossiers, documenten of ordergegevens liggen? Ik neem planbare administratie over voor importeurs, transportbedrijven, handelsbedrijven en expediteurs — op afstand, waar mogelijk in jouw eigen systemen.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="h-auto whitespace-normal px-6 py-3.5"><Link to="/contact" search={{ type: "check" }}>Vertel wat blijft liggen <ArrowRight /></Link></Button>
@@ -224,9 +224,12 @@ function Index() {
           </div>
           <div className="divide-y">
             {demo.rows.map((r) => (
-              <div key={r.id} className="flex items-center justify-between gap-4 px-6 py-4">
-                <span className="text-sm font-medium">{r.id}</span>
-                <span className={`shrink-0 rounded-full px-3 py-1 text-xs font-semibold ${statusClass(r.status)}`}>{r.status}</span>
+              <div key={r.id} className="px-6 py-4">
+                <div className="flex items-center justify-between gap-4">
+                  <span className="text-sm font-medium">{r.id}</span>
+                  <span className={`shrink-0 rounded-full px-3 py-1 text-xs font-semibold ${statusClass(r.status)}`}>{r.status}</span>
+                </div>
+                <p className="mt-1 text-sm text-muted-foreground"><span className="font-medium text-foreground">Volgende actie:</span> {r.action}</p>
               </div>
             ))}
           </div>
@@ -234,6 +237,7 @@ function Index() {
         <p className="mt-3 text-xs text-muted-foreground">Voorbeeld met fictieve gegevens, om te laten zien hoe je overzicht eruit ziet na de overdracht.</p>
 
         <Button asChild className="mt-6 h-auto whitespace-normal py-3"><Link to="/contact" search={{ type: "check" }}>Vertel wat blijft liggen <ArrowRight /></Link></Button>
+        <p className="mt-3 max-w-2xl text-sm text-muted-foreground">Beschrijf kort wat er blijft liggen. Ik reageer persoonlijk en laat weten wat ik kan overnemen en welke informatie ik daarvoor nodig heb.</p>
       </Section>
 
       {/* Why */}
