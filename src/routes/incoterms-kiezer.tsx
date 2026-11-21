@@ -9,6 +9,7 @@ export const Route = createFileRoute("/incoterms-kiezer")({
   head: () => pageHead(
     "Incoterms Kiezer - Welke Incoterm past bij jouw zending? | MVR",
     "EXW, FOB, DAP of DDP? Beantwoord 3 vragen en zie wie betaalt, wie regelt en waar het risico overgaat. Gratis voor importeurs en exporteurs.",
+    "/incoterms-kiezer",
   ),
   component: IncotermsKiezer,
 });
