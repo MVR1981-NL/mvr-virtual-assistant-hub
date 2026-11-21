@@ -19,7 +19,7 @@ function Contact() {
   const { type } = Route.useSearch();
   return (
     <SiteLayout>
-      <PageHero eyebrow="Contact" title="Waar kan ik je mee helpen?" intro="Kies wat het beste bij je situatie past. Na je aanvraag neem ik persoonlijk contact met je op om te kijken of er een match is." />
+      <PageHero eyebrow="Contact" title="Vertel wat blijft liggen" intro="Vertel kort welke werkzaamheden blijven liggen. Marcel neemt persoonlijk contact met je op om te kijken of er een match is." />
       <Section className="-mt-12 pt-0 md:pt-0">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2"><LeadForm key={type} initialType={type ?? "check"} /></div>
