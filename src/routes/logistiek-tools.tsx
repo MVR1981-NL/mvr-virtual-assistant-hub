@@ -8,6 +8,7 @@ export const Route = createFileRoute("/logistiek-tools")({
   head: () => pageHead(
     "Gratis Logistiek Tools | MVR",
     "Opslagkosten Calculator, Orderpick Checklist en Retourkosten Calculator. Gratis voor logistieke bedrijven.",
+    "/logistiek-tools",
   ),
   component: LogistiekTools,
 });
