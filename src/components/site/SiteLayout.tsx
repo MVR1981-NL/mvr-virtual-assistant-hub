@@ -1,25 +1,64 @@
 import { useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, Mail, Phone, Linkedin, MessageCircle, MapPin } from "lucide-react";
+import { Menu, X, Mail, Phone, Linkedin, MessageCircle, MapPin, ChevronDown } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
+
+function DesktopDropdown({ label, children }: { label: string; children: { to: string; label: string }[] }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="relative">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        aria-haspopup="true"
+        onKeyDown={(e) => { if (e.key === "Escape") setOpen(false); }}
+        className="flex items-center gap-1 whitespace-nowrap text-sm font-medium text-navy-muted transition-colors hover:text-navy-foreground"
+      >
+        {label}
+        <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <div className="absolute left-0 top-full z-50 mt-3 w-60 overflow-hidden rounded-xl border bg-white text-foreground shadow-card">
+          {children.map((c) => (
+            <Link key={c.to} to={c.to} onClick={() => setOpen(false)} className="block px-4 py-3 text-sm font-medium hover:bg-muted">
+              {c.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({});
+  const toggleGroup = (label: string) => setOpenGroups((prev) => ({ ...prev, [label]: !prev[label] }));
+  const footerLinks = NAV.flatMap((n) => {
+    if (n.children) return n.children;
+    if (n.to) return [{ to: n.to, label: n.label }];
+    return [];
+  });
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-40 border-b border-navy-foreground/10 bg-navy text-navy-foreground">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-          <Link to="/" className="flex items-center" aria-label="MVR home">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-8 px-5">
+          <Link to="/" className="flex shrink-0 items-center" aria-label="MVR home">
             <img src={SITE.logo} alt="MVR Logistiek & Douane Ondersteuning" className="h-9 w-auto" />
           </Link>
-          <nav className="hidden items-center gap-7 md:flex">
-            {NAV.map((n) => (
-              <Link key={n.to} to={n.to} className="text-sm font-medium text-navy-muted transition-colors hover:text-navy-foreground" activeProps={{ className: "text-navy-foreground" }}>
-                {n.label}
-              </Link>
-            ))}
-            <Link to="/contact" search={{ type: "check" }} className="rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:brightness-110">
-              Gratis check
+          <nav className="hidden items-center gap-6 md:flex">
+            {NAV.map((n) => {
+              if (n.children) return <DesktopDropdown key={n.label} label={n.label} children={n.children} />;
+              if (!n.to) return null;
+              return (
+                <Link key={n.to} to={n.to} className="whitespace-nowrap text-sm font-medium text-navy-muted transition-colors hover:text-navy-foreground" activeProps={{ className: "text-navy-foreground" }}>
+                  {n.label}
+                </Link>
+              );
+            })}
+            <Link to="/contact" search={{ type: "check" }} className="whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:brightness-110">
+              Vertel wat blijft liggen
             </Link>
           </nav>
           <button className="md:hidden" aria-label="Menu openen of sluiten" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
@@ -28,14 +67,38 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         </div>
         {open && (
           <nav className="border-t border-navy-foreground/10 px-5 pb-5 md:hidden">
-            {NAV.map((n) => (
-              <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="block border-b border-navy-foreground/10 py-3 text-base font-medium">
-                {n.label}
-              </Link>
-            ))}
+            {NAV.map((n) => {
+              if (n.children) {
+                const isOpen = !!openGroups[n.label];
+                return (
+                  <div key={n.label} className="border-b border-navy-foreground/10">
+                    <button onClick={() => toggleGroup(n.label)} aria-expanded={isOpen} className="flex w-full items-center justify-between py-3 text-left text-base font-medium">
+                      {n.label}
+                      <ChevronDown className={`h-5 w-5 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    {isOpen && (
+                      <div className="pb-3 pl-4">
+                        {n.children.map((c) => (
+                          <Link key={c.to} to={c.to} onClick={() => setOpen(false)} className="block py-2 text-base text-navy-muted">
+                            {c.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              if (!n.to) return null;
+              return (
+                <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="block border-b border-navy-foreground/10 py-3 text-base font-medium">
+                  {n.label}
+                </Link>
+              );
+            })}
+            <Link to="/faq" onClick={() => setOpen(false)} className="block border-b border-navy-foreground/10 py-3 text-base font-medium">Veelgestelde vragen</Link>
             <Link to="/contact" onClick={() => setOpen(false)} className="block border-b border-navy-foreground/10 py-3 text-base font-medium">Contact</Link>
             <Link to="/contact" search={{ type: "check" }} onClick={() => setOpen(false)} className="mt-4 block rounded-md bg-primary px-4 py-3 text-center font-semibold text-primary-foreground">
-              Doe de gratis check
+              Vertel wat blijft liggen
             </Link>
           </nav>
         )}
@@ -54,7 +117,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider">Navigatie</h3>
             <ul className="mt-4 space-y-2 text-sm text-navy-muted">
-              {NAV.map((n) => (<li key={n.to}><Link to={n.to} className="hover:text-navy-foreground">{n.label}</Link></li>))}
+              {footerLinks.map((n) => (<li key={n.to}><Link to={n.to} className="hover:text-navy-foreground">{n.label}</Link></li>))}
+              <li><Link to="/faq" className="hover:text-navy-foreground">Veelgestelde vragen</Link></li>
               <li><Link to="/contact" className="hover:text-navy-foreground">Contact</Link></li>
             </ul>
           </div>
@@ -117,7 +181,7 @@ export function CtaButtons({ dark = false }: { dark?: boolean }) {
   return (
     <div className="mt-8 flex flex-wrap gap-3">
       <Link to="/contact" search={{ type: "check" }} className="rounded-md bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-card transition hover:brightness-110">
-        Doe de gratis check
+        Vertel wat blijft liggen
       </Link>
       <Link to="/contact" search={{ type: "capaciteit" }} className={`rounded-md border px-6 py-3.5 font-semibold transition ${dark ? "border-navy-foreground/30 text-navy-foreground hover:bg-navy-foreground/10" : "border-foreground/20 text-foreground hover:bg-secondary"}`}>
         Ik heb capaciteit nodig
