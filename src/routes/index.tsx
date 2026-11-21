@@ -218,9 +218,9 @@ function Index() {
         </div>
 
         <div className="mt-6 overflow-hidden rounded-xl border bg-card shadow-card">
-          <div className="flex items-center justify-between border-b px-6 py-4">
-            <h3 className="font-semibold">{demo.label} · Voorbeeld</h3>
-            <span className="text-xs text-muted-foreground">Voorbeeld met fictieve gegevens</span>
+          <div className="border-b px-6 py-4">
+            <h3 className="font-semibold">{demo.label}</h3>
+            <p className="mt-1 text-xs text-muted-foreground">Voorbeeld met fictieve gegevens</p>
           </div>
           <div className="divide-y">
             {demo.rows.map((r) => (
