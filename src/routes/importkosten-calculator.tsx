@@ -36,7 +36,7 @@ function ImportkostenCalculator() {
   const [transport, setTransport] = useState("1200");
   const [verzekering, setVerzekering] = useState("100");
   const [categorie, setCategorie] = useState("kleding");
-  const [tarief, setTarief] = useState("6");
+  const [tarief, setTarief] = useState("12");
   const [artikel23, setArtikel23] = useState(false);
 
   const goederenNum = toNumber(goederen);
@@ -60,7 +60,7 @@ function ImportkostenCalculator() {
 
   return (
     <SiteLayout>
-      <PageHero eyebrow="Calculator" title="Wat kost import uit buiten de EU nou echt?" intro="Vul je goederenwaarde, transport en verzekering in en zie direct je invoerrechten, BTW bij import en totale landed cost." />
+      <PageHero eyebrow="Calculator" title="Wat kost import van buiten de EU?" intro="Vul je goederenwaarde, transport en verzekering in en zie direct je invoerrechten, BTW bij import en totale landed cost." />
       <Section>
         <img src="/site-assets/Customs.jpg" alt="Customs declaration document" className="w-full h-64 object-cover rounded-2xl mb-8" />
         <div className="mx-auto max-w-3xl">
