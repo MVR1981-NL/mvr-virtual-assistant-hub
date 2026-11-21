@@ -22,6 +22,7 @@ function LogistiekTools() {
   return (
     <SiteLayout>
       <Section>
+        <img src="/site-assets/warehouse_2.jpg" alt="Magazijn met stellingen" className="w-full h-64 object-cover rounded-2xl mb-8" />
         <Eyebrow>Gratis tools - Logistiek</Eyebrow>
         <h1 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Gratis Logistiek Tools</h1>
         <p className="mt-4 max-w-2xl text-muted-foreground">Drie gratis tools voor magazijn, orderpickers en logistieke bedrijven. Direct te gebruiken, zonder account.</p>
