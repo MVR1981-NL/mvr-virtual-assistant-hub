@@ -26,6 +26,7 @@ function Opslagkosten() {
   return (
     <SiteLayout>
       <Section>
+        <img src="/site-assets/logistiek-magazijn.jpg" alt="Heftruck met pallets in magazijn" className="w-full h-64 object-cover rounded-2xl mb-8" />
         <Eyebrow>Gratis tool - Logistiek</Eyebrow>
         <h1 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Opslagkosten Calculator</h1>
         <p className="mt-4 max-w-2xl text-muted-foreground">Wat kost je palletplek per maand echt? Vul je aantallen in en zie direct je totale opslagkosten, je kosten per pallet en je kosten per jaar.</p>
