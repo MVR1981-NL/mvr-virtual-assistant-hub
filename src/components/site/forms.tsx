@@ -20,13 +20,19 @@ const PLACEHOLDER: Record<RequestType, string> = {
   capaciteit: "Welke werkzaamheden blijven liggen? Hoeveel werk is het ongeveer?",
   vraag: "Waar kan ik je mee helpen?",
 };
+const PAKKET_LABELS: Record<string, string> = {
+  flex10: "FLEX 10",
+  flex20: "FLEX 20",
+  flex25: "FLEX 25",
+  sprint: "Piek & achterstand Sprint",
+};
 function PrivacyNote() {
   return <p className="mt-3 text-xs leading-relaxed text-muted-foreground">Je gegevens worden gebruikt voor deze aanvraag, niet voor een nieuwsbrief. <Link to="/privacy-verklaring" className="underline underline-offset-2">Privacyverklaring</Link></p>;
 }
 function SpamTrap() {
   return <div hidden aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>;
 }
-export function LeadForm({ initialType = "check", initialInterest }: { initialType?: RequestType; initialInterest?: typeof interestOptions[number] }) {
+export function LeadForm({ initialType = "check", initialInterest, initialPakket }: { initialType?: RequestType; initialInterest?: typeof interestOptions[number]; initialPakket?: string }) {
   const [type, setType] = useState<RequestType>(initialType);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
@@ -36,10 +42,13 @@ export function LeadForm({ initialType = "check", initialInterest }: { initialTy
     if (status === "sending") return;
     const form = e.currentTarget;
     const fd = new FormData(form);
+    const originalMessage = String(fd.get("message") ?? "");
+    const pakketLabel = initialPakket ? PAKKET_LABELS[initialPakket] ?? initialPakket : null;
+    const message = pakketLabel ? `Pakket: ${pakketLabel}\n\n${originalMessage}` : originalMessage;
     const raw = {
       request_type: type, name: String(fd.get("name") ?? ""), email: String(fd.get("email") ?? ""),
       company: String(fd.get("company") ?? "") || null, phone: null,
-      message: String(fd.get("message") ?? ""), interest: undefined,
+      message: message, interest: undefined,
       timing: undefined, website: String(fd.get("website") ?? ""),
     };
     const parsed = leadSchema.safeParse(raw);
@@ -65,7 +74,7 @@ export function LeadForm({ initialType = "check", initialInterest }: { initialTy
   );
   return (
     <form onSubmit={onSubmit} noValidate aria-busy={status === "sending"} className="rounded-lg border bg-card p-6 shadow-card md:p-8">
-      <h2 className="text-2xl font-bold">Vertel wat blijft liggen</h2>
+      <h2 className="text-2xl font-bold">Waar zoek je hulp bij?</h2>
       <p className="mt-2 text-sm text-muted-foreground">Vertel kort wat er blijft liggen. Samen bepalen we welke taken overdraagbaar zijn, wat intern blijft en welke capaciteit past.</p>
       <fieldset className="mt-6" disabled={status === "sending"}>
         <legend className={label}>Waar gaat het over?</legend>
