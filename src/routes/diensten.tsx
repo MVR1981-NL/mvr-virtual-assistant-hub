@@ -24,6 +24,7 @@ function Diensten() {
         <CtaButtons dark />
       </PageHero>
       <Section>
+        <img src="/site-assets/warehouse.jpg" alt="Magazijn stellingen met pallets" className="w-full h-64 object-cover rounded-2xl mb-8" />
         <div className="grid gap-6 md:grid-cols-2">
           {GROUPS.map((g) => (
             <div key={g.n} className="rounded-xl border bg-card p-8 shadow-card">
