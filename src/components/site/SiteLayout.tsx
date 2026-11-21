@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
+import { Analytics } from "@vercel/analytics/react";
 import { Menu, X, Mail, Phone, Linkedin, MessageCircle, MapPin, ChevronDown } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 
@@ -148,6 +149,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         <MessageCircle className="h-5 w-5" />
         <span className="hidden sm:inline">WhatsApp</span>
       </a>
+      <Analytics />
     </div>
   );
 }
