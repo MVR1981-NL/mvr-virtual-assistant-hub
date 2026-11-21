@@ -9,6 +9,7 @@ export const Route = createFileRoute("/eudr-check")({
   head: () => pageHead(
     "EUDR Check - Valt mijn product onder de ontbossingsregels? | MVR",
     "Check in 2 minuten of jouw product onder EUDR valt en wat je moet aanleveren: geolocatie, due diligence en bewijs. Gratis voor importeurs.",
+    "/eudr-check",
   ),
   component: EudrCheck,
 });
