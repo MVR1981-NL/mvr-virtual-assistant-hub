@@ -9,6 +9,7 @@ export const Route = createFileRoute("/transportkosten-calculator")({
   head: () => pageHead(
     "Transportkosten Calculator - Wat kost deze rit echt? | MVR",
     "Bereken je kostprijs per km, per pallet en per rit. Diesel, tol, chauffeur en afschrijving. Gratis voor transporteurs.",
+    "/transportkosten-calculator",
   ),
   component: TransportkostenCalculator,
 });
