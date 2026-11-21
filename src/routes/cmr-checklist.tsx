@@ -38,6 +38,7 @@ function CmrChecklist() {
   return (
     <SiteLayout>
       <Section>
+        <img src="/site-assets/Package.jpg" alt="Pakket met CMR document" className="w-full h-64 object-cover rounded-2xl mb-8" />
         <Eyebrow>Gratis tool - Transport &amp; Logistiek</Eyebrow>
         <h1 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">CMR Checklist</h1>
         <p className="mt-4 max-w-2xl text-muted-foreground">Staat alles op je CMR wat er op moet staan? Vink af voor je vertrekt. 1 fout of ontbrekende handtekening kan je later een schadeclaim of niet-betaalde wachttijd kosten.</p>
