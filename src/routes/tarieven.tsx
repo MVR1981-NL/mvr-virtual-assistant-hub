@@ -11,9 +11,9 @@ export const Route = createFileRoute("/tarieven")({
 });
 
 const PLANS = [
-  { name: "FLEX 10", hours: "10 uur per maand", price: "€850", text: "Voor een beperkt aantal terugkerende werkzaamheden, zoals documentcontroles, dossierwerk en administratieve opvolging.", featured: false },
-  { name: "FLEX 20", hours: "20 uur per maand", price: "€1.650", text: "Voor bedrijven waar structureel meer specialistisch werk blijft liggen en meerdere werkzaamheden kunnen worden overgedragen.", featured: true },
-  { name: "FLEX 25", hours: "25 uur per maand", price: "€2.000", text: "Voor bedrijven die MVR structureel inzetten als extra logistieke capaciteit voor dossiers, documentatie en import/export-administratie.", featured: false },
+  { name: "FLEX 10", pakket: "flex10", hours: "10 uur per maand", price: "€850", text: "Voor een beperkt aantal terugkerende werkzaamheden, zoals documentcontroles, dossierwerk en administratieve opvolging.", featured: false },
+  { name: "FLEX 20", pakket: "flex20", hours: "20 uur per maand", price: "€1.650", text: "Voor bedrijven waar structureel meer specialistisch werk blijft liggen en meerdere werkzaamheden kunnen worden overgedragen.", featured: true },
+  { name: "FLEX 25", pakket: "flex25", hours: "25 uur per maand", price: "€2.000", text: "Voor bedrijven die MVR structureel inzetten als extra logistieke capaciteit voor dossiers, documentatie en import/export-administratie.", featured: false },
 ];
 
 const FAQ = [
@@ -38,7 +38,7 @@ function Tarieven() {
               <p className="mt-6"><span className="font-display text-4xl font-bold">{p.price}</span><span className="text-muted-foreground"> / maand</span></p>
               <p className="mt-1 text-xs text-muted-foreground">excl. btw</p>
               <p className="mt-6 flex-1 text-sm text-muted-foreground">{p.text}</p>
-              <Link to="/contact" search={{ type: "capaciteit" }} className={`mt-8 rounded-md px-5 py-3 text-center font-semibold transition ${p.featured ? "bg-primary text-primary-foreground hover:brightness-110" : "border hover:bg-secondary"}`}>Kies {p.name}</Link>
+              <Link to="/contact" search={{ type: "capaciteit", pakket: p.pakket }} className={`mt-8 rounded-md px-5 py-3 text-center font-semibold transition ${p.featured ? "bg-primary text-primary-foreground hover:brightness-110" : "border hover:bg-secondary"}`}>Kies {p.name}</Link>
             </div>
           ))}
         </div>
@@ -47,7 +47,7 @@ function Tarieven() {
             <h2 className="font-display text-xl font-bold">Piek & achterstand Sprint</h2>
             <p className="mt-1 max-w-xl text-sm text-muted-foreground">Tijdelijke capaciteit voor achterstanden, pieken of een afgebakend project. Prijs op basis van afgesproken scope en benodigde capaciteit.</p>
           </div>
-          <Link to="/contact" search={{ type: "capaciteit" }} className="shrink-0 rounded-md bg-navy px-5 py-3 text-center font-semibold text-navy-foreground">Vraag een Sprint aan</Link>
+          <Link to="/contact" search={{ type: "capaciteit", pakket: "sprint" }} className="shrink-0 rounded-md bg-navy px-5 py-3 text-center font-semibold text-navy-foreground">Vraag een Sprint aan</Link>
         </div>
       </Section>
       <Section className="bg-muted">
