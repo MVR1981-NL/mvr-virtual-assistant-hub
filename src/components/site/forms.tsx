@@ -38,9 +38,9 @@ export function LeadForm({ initialType = "check", initialInterest }: { initialTy
     const fd = new FormData(form);
     const raw = {
       request_type: type, name: String(fd.get("name") ?? ""), email: String(fd.get("email") ?? ""),
-      company: String(fd.get("company") ?? "") || null, phone: String(fd.get("phone") ?? "") || null,
-      message: String(fd.get("message") ?? ""), interest: fd.get("interest") || undefined,
-      timing: fd.get("timing") || undefined, website: String(fd.get("website") ?? ""),
+      company: String(fd.get("company") ?? "") || null, phone: null,
+      message: String(fd.get("message") ?? ""), interest: undefined,
+      timing: undefined, website: String(fd.get("website") ?? ""),
     };
     const parsed = leadSchema.safeParse(raw);
     if (!parsed.success) {
@@ -65,7 +65,7 @@ export function LeadForm({ initialType = "check", initialInterest }: { initialTy
   );
   return (
     <form onSubmit={onSubmit} noValidate aria-busy={status === "sending"} className="rounded-lg border bg-card p-6 shadow-card md:p-8">
-      <h2 className="text-2xl font-bold">{type === "check" ? "Vraag jouw gratis check aan" : type === "capaciteit" ? "Bespreek jouw capaciteitsvraag" : "Stel je vraag aan Marcel"}</h2>
+      <h2 className="text-2xl font-bold">Vertel wat blijft liggen</h2>
       <p className="mt-2 text-sm text-muted-foreground">Vertel kort wat er blijft liggen. Samen bepalen we welke taken overdraagbaar zijn, wat intern blijft en welke capaciteit past.</p>
       <fieldset className="mt-6" disabled={status === "sending"}>
         <legend className={label}>Waar gaat het over?</legend>
@@ -75,17 +75,14 @@ export function LeadForm({ initialType = "check", initialInterest }: { initialTy
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           <div><label className={label} htmlFor="name">Naam *</label><input id="name" name="name" required className={input} maxLength={100} autoComplete="name" aria-invalid={!!errors["name"]} aria-describedby={errors["name"] ? "name-error" : undefined} />{errors["name"] && <p id="name-error" className="mt-1 text-xs text-destructive">{errors["name"]}</p>}</div>
           <div><label className={label} htmlFor="email">E-mailadres *</label><input id="email" name="email" type="email" required className={input} maxLength={255} autoComplete="email" aria-invalid={!!errors["email"]} aria-describedby={errors["email"] ? "email-error" : undefined} />{errors["email"] && <p id="email-error" className="mt-1 text-xs text-destructive">{errors["email"]}</p>}</div>
-          <div><label className={label} htmlFor="company">Bedrijf</label><input id="company" name="company" className={input} maxLength={150} autoComplete="organization" /></div>
-          <div><label className={label} htmlFor="phone">Telefoon (optioneel)</label><input id="phone" name="phone" type="tel" className={input} maxLength={30} autoComplete="tel" /></div>
-          <div><label className={label} htmlFor="interest">Waar zoek je hulp bij?</label><select id="interest" name="interest" defaultValue={initialInterest ?? ""} className={input}><option value="">Nog niet zeker</option>{interestOptions.map(i => <option key={i}>{i}</option>)}</select></div>
-          <div><label className={label} htmlFor="timing">Gewenste start</label><select id="timing" name="timing" defaultValue="In overleg" className={input}>{["In overleg", "Zo snel mogelijk", "Binnen een maand", "Later / oriënterend"].map(t => <option key={t}>{t}</option>)}</select></div>
         </div>
+        <div className="mt-4"><label className={label} htmlFor="company">Bedrijf</label><input id="company" name="company" className={input} maxLength={150} autoComplete="organization" /></div>
         <div className="mt-4"><label className={label} htmlFor="message">Welke werkzaamheden blijven liggen? *</label><textarea id="message" name="message" required rows={4} className={input} maxLength={2000} placeholder={PLACEHOLDER[type]} aria-invalid={!!errors["message"]} aria-describedby={errors["message"] ? "message-error" : undefined} />{errors["message"] && <p id="message-error" className="mt-1 text-xs text-destructive">{errors["message"]}</p>}</div>
         <SpamTrap />
       </fieldset>
       {Object.keys(errors).length > 0 && <p role="alert" className="mt-3 text-sm text-destructive">Controleer de gemarkeerde velden.</p>}
       {status === "error" && <p role="alert" className="mt-4 text-sm text-destructive">Je aanvraag is niet opgeslagen. Probeer het opnieuw of mail naar <a className="underline" href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>}
-      <Button type="submit" disabled={status === "sending"} className="mt-6 h-auto w-full whitespace-normal py-3.5">{status === "sending" ? "Versturen…" : type === "check" ? "Vraag de gratis check aan" : "Verstuur mijn aanvraag"}<ArrowRight /></Button>
+      <Button type="submit" disabled={status === "sending"} className="mt-6 h-auto w-full whitespace-normal py-3.5">{status === "sending" ? "Versturen…" : "Verstuur mijn vraag"}<ArrowRight /></Button>
       <p className="mt-3 text-sm font-medium">Vrijblijvend · Persoonlijk contact met Marcel</p><PrivacyNote />
     </form>
   );
