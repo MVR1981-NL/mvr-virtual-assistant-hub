@@ -9,6 +9,7 @@ export const Route = createFileRoute("/cmr-checklist")({
   head: () => pageHead(
     "CMR Checklist - Staat alles op je CMR? | MVR",
     "Vink in 1 minuut af of je CMR compleet is voor vertrek. Verplichte velden, handtekeningen en wachttijd log. Gratis voor transporteurs.",
+    "/cmr-checklist",
   ),
   component: CmrChecklist,
 });
