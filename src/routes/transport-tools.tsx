@@ -8,6 +8,7 @@ export const Route = createFileRoute("/transport-tools")({
   head: () => pageHead(
     "Gratis Transport & Logistiek Tools | MVR",
     "Pallet Calculator, Transportkosten Calculator, CMR Checklist, Incoterms Kiezer, Rij- en Rusttijden Check en Wachttijd Calculator. Gratis voor transporteurs en logistieke bedrijven.",
+    "/transport-tools",
   ),
   component: TransportTools,
 });
