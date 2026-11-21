@@ -9,6 +9,7 @@ export const Route = createFileRoute("/hs-code-check")({
   head: () => pageHead(
     "HS-code Check - Wat is de HS-code van mijn product? | MVR",
     "Check de HS-code, het invoertarief en of EUDR geldt voor jouw product. Gratis voor importeurs.",
+    "/hs-code-check",
   ),
   component: HsCodeCheck,
 });
