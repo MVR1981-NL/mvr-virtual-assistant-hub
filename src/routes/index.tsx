@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target, Quote, Calculator, Map, Leaf, Package, Fuel, ClipboardCheck, Scale, Timer, Search, TreePine, Warehouse, RotateCcw } from "lucide-react";
+import { FileText, Globe2, PackageSearch, TrendingUp, Check, X, ArrowRight, Briefcase, Clock, Target, Quote, Calculator, Package, Fuel, ClipboardCheck, Scale, Timer, Search, TreePine, Warehouse, RotateCcw } from "lucide-react";
 import heroPort from "@/assets/hero-port.jpg";
 import { SiteLayout, Section, Eyebrow, CtaButtons, CtaBand } from "@/components/site/SiteLayout";
 import { ChecklistForm } from "@/components/site/forms";
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
 });
 
 const SERVICES = [
-  { icon: FileText, title: "Documenten & dossiers", text: "CMR, AWB, dossieropbouw, controles en ontbrekende documentatie najagen." },
+  { icon: FileText, title: "Documenten & dossiers", text: "Ontbrekende CMR's nabellen bij vervoerders, ritstatus bijwerken in jouw systeem, AWB's controleren en dossiers compleet maken." },
   { icon: Globe2, title: "Import & export", text: "Import-/exportadministratie, oorsprongsdocumentatie en voorbereiding van douaneprocessen." },
   { icon: PackageSearch, title: "Orders, zendingen & data-entry", text: "Order- en zendinginformatie verwerken en opvolgen, direct in jouw eigen systemen." },
   { icon: TrendingUp, title: "Pieken & achterstand", text: "Tijdelijke specialistische capaciteit wanneer het werk zich opstapelt." },
@@ -196,29 +196,29 @@ function Index() {
       <Section>
         <Eyebrow>Uitgelicht · Gratis tools</Eyebrow>
         <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">Start met 1 tool, zie direct waar je staat</h2>
-        <p className="mt-4 max-w-2xl text-muted-foreground">Deze 2 tools worden het meest gebruikt. In 2 minuten klaar, zonder account.</p>
+        <p className="mt-4 max-w-2xl text-muted-foreground">Eén voor importeurs, één voor transportbedrijven. In 2 minuten klaar, zonder account.</p>
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           <div className="rounded-xl border bg-card p-7 shadow-card">
-            <Map className="h-8 w-8 text-primary" />
-            <h3 className="mt-4 text-xl font-semibold">Persoonlijke Import Roadmap</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Beantwoord 5 vragen en krijg je eigen importplan: HS-code, tarief, EUDR, EORI en artikel 23 in 1 overzicht.</p>
+            <Calculator className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">Importkosten berekenen</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Importeer je goederen van buiten de EU? Bereken in 2 minuten je totale importkosten: douanerechten, btw, inklaring en transport.</p>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Persoonlijk voor jouw product en land</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> In 2 minuten klaar</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Deel hem met je collega</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Douanerechten + btw in 1 overzicht</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Inclusief inklaring en transport</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Direct weten wat je product echt kost</li>
             </ul>
-            <Button asChild className="mt-5"><Link to="/import-roadmap">Maak mijn roadmap <ArrowRight /></Link></Button>
+            <Button asChild className="mt-5"><Link to="/importkosten-calculator">Bereken mijn importkosten <ArrowRight /></Link></Button>
           </div>
           <div className="rounded-xl border bg-card p-7 shadow-card">
-            <Leaf className="h-8 w-8 text-primary" />
-            <h3 className="mt-4 text-xl font-semibold">CBAM Check</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Importeer je staal, aluminium of cement? Check in 2 minuten of CBAM voor jou geldt of je vrijgesteld bent.</p>
+            <ClipboardCheck className="h-8 w-8 text-primary" />
+            <h3 className="mt-4 text-xl font-semibold">CMR controleren</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Vervoer je goederen over de weg? Controleer in 2 minuten of je CMR compleet en kloppend is, voordat je onderweg problemen krijgt.</p>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> 50 ton drempel check</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Direct weten of je moet aanmelden</li>
-              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Deadlines tot 30 september 2027</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Alle verplichte velden checken</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Ontbrekende gegevens direct zien</li>
+              <li className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> Voorkom discussie bij levering</li>
             </ul>
-            <Button asChild className="mt-5"><Link to="/cbam-check">Check mijn CBAM status <ArrowRight /></Link></Button>
+            <Button asChild className="mt-5"><Link to="/cmr-checklist">Controleer mijn CMR <ArrowRight /></Link></Button>
           </div>
         </div>
       </Section>
