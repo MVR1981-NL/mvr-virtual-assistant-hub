@@ -203,15 +203,15 @@ function Index() {
         </div>
 
         <div className="mt-8 grid gap-5 md:grid-cols-3">
-          <div className="rounded-xl border bg-card p-6 shadow-card">
+          <div className="rounded-xl border bg-card p-6 pr-20 shadow-card md:pr-6">
             <p className="text-sm font-semibold text-primary">1 · Wat jij aanlevert</p>
             <p className="mt-3 text-sm text-muted-foreground">{demo.delivers}</p>
           </div>
-          <div className="rounded-xl border bg-card p-6 shadow-card">
+          <div className="rounded-xl border bg-card p-6 pr-20 shadow-card md:pr-6">
             <p className="text-sm font-semibold text-primary">2 · Wat ik overneem</p>
             <p className="mt-3 text-sm text-muted-foreground">{demo.takesOver}</p>
           </div>
-          <div className="rounded-xl border bg-card p-6 shadow-card">
+          <div className="rounded-xl border bg-card p-6 pr-20 shadow-card md:pr-6">
             <p className="text-sm font-semibold text-primary">3 · Wat jij terugkrijgt</p>
             <p className="mt-3 text-sm text-muted-foreground">{demo.returns}</p>
           </div>
