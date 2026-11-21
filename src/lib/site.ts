@@ -11,17 +11,29 @@ export const SITE = {
   logo: "/site-assets/7678788219ad1506.webp",
 };
 
-export const NAV = [
-  { to: "/diensten", label: "Diensten" },
+export type NavLink = { to: string; label: string };
+export type NavGroup = { label: string; to?: string; children?: NavLink[] };
+
+export const NAV: NavGroup[] = [
+  {
+    label: "Diensten",
+    children: [
+      { to: "/diensten", label: "Alle werkzaamheden" },
+      { to: "/douane-administratie", label: "Douane-administratie" },
+    ],
+  },
   { to: "/tarieven", label: "Tarieven" },
-  { to: "/over-mij", label: "Over mij" },
-  { to: "/actueel", label: "Actueel" },
-  { to: "/faq", label: "FAQ" },
-  { to: "/douane-tools", label: "Douane Tools" },
-  { to: "/transport-tools", label: "Transport Tools" },
-  { label: "Logistiek Tools", to: "/logistiek-tools" },
-  { to: "/douane-administratie", label: "Douane-administratie" },
-] as const;
+  { to: "/over-mij", label: "Over Marcel" },
+  {
+    label: "Kennis & tools",
+    children: [
+      { to: "/douane-tools", label: "Douanetools" },
+      { to: "/transport-tools", label: "Transporttools" },
+      { to: "/logistiek-tools", label: "Logistieke tools" },
+      { to: "/actueel", label: "Artikelen" },
+    ],
+  },
+];
 
 export const BASE_URL = "https://www.mvrvirtualassistant.nl";
 
