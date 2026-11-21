@@ -37,7 +37,7 @@ function Contact() {
                 <p className="mt-1 text-sm text-muted-foreground">Vertel kort welk werk blijft liggen en wanneer dat vooral speelt. Ik lees je bericht zelf en laat weten welke taken ik kan overnemen en welke informatie ik daarvoor nodig heb.</p>
               </div>
             )}
-            <LeadForm key={`${type ?? "check"}-${pakket ?? ""}`} initialType={type ?? "check"} />
+            <LeadForm key={`${type ?? "check"}-${pakket ?? ""}`} initialType={type ?? "check"} initialPakket={pakket} />
           </div>
           <aside className="space-y-4">
             <a href={SITE.whatsapp} target="_blank" rel="noreferrer" className="flex items-center gap-4 rounded-xl bg-whatsapp p-5 text-whatsapp-foreground shadow-card">
