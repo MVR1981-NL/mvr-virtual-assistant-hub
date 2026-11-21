@@ -9,6 +9,7 @@ export const Route = createFileRoute("/retourkosten-calculator")({
   head: () => pageHead(
     "Retourkosten Calculator - Wat kost die retour je echt? | MVR",
     "Bereken je echte retourkosten per maand en per retour: verzending, arbeid, inspectie en herverpakking.",
+    "/retourkosten-calculator",
   ),
   component: Retourkosten,
 });
