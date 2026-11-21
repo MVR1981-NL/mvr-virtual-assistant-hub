@@ -9,6 +9,7 @@ export const Route = createFileRoute("/wachttijd-calculator")({
   head: () => pageHead(
     "Wachttijd Calculator - Hoeveel wachttijd kan je factureren? | MVR",
     "Log aankomst, start laden en vertrek en bereken direct hoeveel wachttijd je kan factureren. Gratis voor transporteurs.",
+    "/wachttijd-calculator",
   ),
   component: WachttijdCalculator,
 });
