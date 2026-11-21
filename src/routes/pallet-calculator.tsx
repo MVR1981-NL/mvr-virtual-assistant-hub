@@ -9,6 +9,7 @@ export const Route = createFileRoute("/pallet-calculator")({
   head: () => pageHead(
     "Pallet Calculator - Hoeveel pallets passen er in je trailer? | MVR",
     "Bereken hoeveel euro-pallets of blokpallets in je trailer passen en hoeveel laadmeters je lading is. Gratis voor transporteurs en planners.",
+    "/pallet-calculator",
   ),
   component: PalletCalculator,
 });
