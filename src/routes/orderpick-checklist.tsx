@@ -9,6 +9,7 @@ export const Route = createFileRoute("/orderpick-checklist")({
   head: () => pageHead(
     "Orderpick Checklist - Staat je order compleet voor verzending? | MVR",
     "Vink af voor verzending en voorkom fouten, retouren en discussie. Gratis checklist voor magazijn en orderpickers.",
+    "/orderpick-checklist",
   ),
   component: Orderpick,
 });
